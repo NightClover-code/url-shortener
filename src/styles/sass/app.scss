@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+@import './variables';
+@import './header';
+@import './intro';
+@import './shorter_link';
+@import './statistics';
+@import './boost';
+@import './main_button';
+@import './footer';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.app__container {
+  position: relative;
+  margin: auto;
+  overflow: hidden;
+  min-height: 100vh;
+  width: 100%;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  background: url('../images/illustration-working.svg') no-repeat;
+  background-position: 110% 150px;
+  @media screen and (max-width: 1300px) {
+    background-position: 140% 150px;
+  }
+  @media screen and (max-width: 1100px) {
+    background-position: 50% 150px;
+  }
+  @media screen and (max-width: 700px) {
+    justify-content: space-between;
+    background-position: 10px 150px;
+  }
+  @media screen and (max-width: 550px) {
+    background-position: 5vh 120px;
+    background-size: 400px;
+  }
+  .wrapper {
+    margin: auto;
+    min-width: 250px;
+    max-width: 1600px;
+    width: 75%;
+    @media screen and (max-width: 1100px) {
+      width: 90%;
+    }
+  }
+}
+.active {
+  display: block;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+@media screen and (min-width: 800px) {
+  .active {
+    display: inline-flex;
+  }
+}
+@media screen and (min-width: 800px) {
+  .overlay {
+    position: relative;
+    background-color: transparent !important;
+  }
+}
+.red__border {
+  border: 2px solid red !important;
+  &::placeholder {
+    color: rgb(190, 50, 50) !important;
+    opacity: 0.5;
+  }
+}
+.copied {
+  background-color: $dark_violet !important;
+  cursor: default !important;
+  &:hover {
+    opacity: 1 !important;
+  }
+}

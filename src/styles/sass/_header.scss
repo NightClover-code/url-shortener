@@ -1,0 +1,110 @@
+header {
+  margin-top: 40px;
+  display: flex;
+  @media screen and (max-width: 800px) {
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo__container {
+    .logo {
+      margin-top: 10px;
+    }
+  }
+  .menu__container {
+    .menu__icon {
+      @media screen and (min-width: 800px) {
+        display: none;
+      }
+      cursor: pointer;
+      i {
+        color: $grayish_violet;
+      }
+    }
+  }
+  nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    @media screen and (max-width: 800px) {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 15%;
+      width: 90%;
+      flex-flow: column nowrap;
+      background-color: $dark_violet;
+      border-radius: 10px;
+      padding: 20px 0 40px 0;
+    }
+    .nav__list {
+      margin-left: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @media screen and (max-width: 800px) {
+        flex-flow: column nowrap;
+        margin: 0;
+      }
+    }
+    .account__list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @media screen and (max-width: 800px) {
+        flex-flow: column nowrap;
+        width: 100%;
+      }
+    }
+    .list__item {
+      list-style: none;
+      padding: 0 20px;
+      font-size: 15px;
+      color: $grayish_violet;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        color: $very_dark_violet;
+      }
+      @media screen and (max-width: 800px) {
+        color: #fff;
+        line-height: 3.8;
+        font-size: 18px;
+        &:hover {
+          color: $cyan;
+        }
+      }
+    }
+    .login {
+      @media screen and (max-width: 800px) {
+        text-align: center;
+        width: 90%;
+        border-top: 1px solid $grayish_violet;
+      }
+    }
+    .sign__up__button {
+      font-size: 15px;
+      color: #fff;
+      background-color: $cyan;
+      list-style: none;
+      width: 120px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 30px;
+      margin-left: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      &:hover {
+        opacity: 0.6;
+      }
+      @media screen and (max-width: 800px) {
+        margin: 0;
+        width: 90%;
+      }
+    }
+  }
+}
