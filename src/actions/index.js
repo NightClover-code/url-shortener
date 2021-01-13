@@ -8,9 +8,14 @@ import {
   NO_URL_PROVIDED,
   SUCCESSFULLY_SHORTENED_URL,
   USER_ENTERS_URL,
+  FETCH_LINKS,
   YOUTUBE_SPECIAL_LINKS,
 } from '../actions/types';
-
+//importing api call
+import shortenURL from '../API/shortenURL';
+//imoprting random id's to set as keys for list children
+import { v4 as uuidv4 } from 'uuid';
+//action creators
 export const clickedOnMenu = () => {
   return {
     type: CLICK_ON_MENU,
@@ -32,9 +37,7 @@ export const youtubeSpecial = user => {
     type: YOUTUBE_SPECIAL_LINKS,
     payload: {
       user: 'https://youtu.be/' + user.slice(9),
-      videoId: ('https://youtu.be/' + user.slice(9)).slice(
-        17
-      ),
+      videoId: ('https://youtu.be/' + user.slice(9)).slice(17),
     },
   };
 };
@@ -70,6 +73,26 @@ export const invalidLink = () => {
 export const alreadyShortened = () => {
   return {
     type: ALREADY_SHORTENED_URL,
-    paylaod: 'Your link is already shortened 😉',
+    payload: 'Your link is already shortened 😉',
   };
+};
+export const fetchLink = user => async dispatch => {
+  const response = await shortenURL('/shorten', {
+    params: { url: user },
+  }).catch(err => {
+    if (err.response) {
+      dispatch(invalidLink());
+    }
+  });
+  if (response) {
+    dispatch({
+      type: FETCH_LINKS,
+      payload: {
+        shortenedLink: response.data.result.full_short_link,
+        originalLink: response.data.result.original_link,
+        id: uuidv4(),
+      },
+    });
+    dispatch(successfullyShortened());
+  }
 };
