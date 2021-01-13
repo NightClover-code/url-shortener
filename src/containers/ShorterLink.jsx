@@ -27,17 +27,14 @@ const ShorterLink = ({
 }) => {
   //refs
   const inputRef = useRef(null);
+  //on form submit function
   const onFormSubmit = event => {
     //preventing default action on submit
     event.preventDefault();
-
-    //getting data from URL shortener API
     if (user !== '') {
       userProvidedLink();
       inputRef.current.classList.remove('red__border');
-      //checking if user enters a youtube shortened link
-      if (user.includes('youtu.be/')) {
-      } else if (user.includes('https://shrtco.de/')) {
+      if (user.includes('https://shrtco.de/')) {
         alreadyShortened();
       } else {
         fetchLink(user);
@@ -72,7 +69,7 @@ const ShorterLink = ({
 };
 const mapStateToProps = state => {
   return {
-    user: state.userInfo.user,
+    user: state.user,
     loading: state.loading,
   };
 };

@@ -1,15 +1,11 @@
 import { INPUT_CHANGED, FORM_RESET } from '../actions/types';
-//initial state
-const INITIAL_STATE = {
-  user: '',
-  videoId: null,
-};
-const userReducer = (state = INITIAL_STATE, action) => {
+
+const userReducer = (state = '', action) => {
   switch (action.type) {
     case INPUT_CHANGED:
-      return { ...state, user: action.payload };
+      return action.payload;
     case FORM_RESET:
-      return { ...state, user: '' };
+      return '';
     default:
       return state;
   }

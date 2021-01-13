@@ -6,7 +6,7 @@ import linkReducer from './linkReducer';
 
 export default combineReducers({
   isNavOpen: navReducer,
-  userInfo: userReducer,
+  user: userReducer,
   loading: loadingReducer,
   links: linkReducer,
 });

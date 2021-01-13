@@ -9,7 +9,6 @@ import {
   SUCCESSFULLY_SHORTENED_URL,
   USER_ENTERS_URL,
   FETCH_LINKS,
-  YOUTUBE_SPECIAL_USER,
 } from '../actions/types';
 //importing api call
 import shortenURL from '../API/shortenURL';
