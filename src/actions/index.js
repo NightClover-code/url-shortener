@@ -9,7 +9,6 @@ import {
   SUCCESSFULLY_SHORTENED_URL,
   USER_ENTERS_URL,
   FETCH_LINKS,
-  YOUTUBE_SPECIAL_LINKS,
 } from '../actions/types';
 //importing api call
 import shortenURL from '../API/shortenURL';
@@ -30,15 +29,6 @@ export const inputChanged = target => {
   return {
     type: INPUT_CHANGED,
     payload: target.value.trim(),
-  };
-};
-export const youtubeSpecial = user => {
-  return {
-    type: YOUTUBE_SPECIAL_LINKS,
-    payload: {
-      user: 'https://youtu.be/' + user.slice(9),
-      videoId: ('https://youtu.be/' + user.slice(9)).slice(17),
-    },
   };
 };
 export const resetForm = () => {
@@ -77,22 +67,44 @@ export const alreadyShortened = () => {
   };
 };
 export const fetchLink = user => async dispatch => {
-  const response = await shortenURL('/shorten', {
-    params: { url: user },
-  }).catch(err => {
-    if (err.response) {
-      dispatch(invalidLink());
-    }
-  });
-  if (response) {
-    dispatch({
-      type: FETCH_LINKS,
-      payload: {
-        shortenedLink: response.data.result.full_short_link,
-        originalLink: response.data.result.original_link,
-        id: uuidv4(),
-      },
+  if (user.includes('youtu.be/')) {
+    const videoId = user.slice(17);
+    const response = await shortenURL('/shorten', {
+      params: { url: `https://youtube.com/watch?v=${videoId}` },
+    }).catch(err => {
+      if (err.response) {
+        dispatch(invalidLink());
+      }
     });
-    dispatch(successfullyShortened());
+    if (response) {
+      dispatch({
+        type: FETCH_LINKS,
+        payload: {
+          shortenedLink: response.data.result.full_short_link,
+          originalLink: response.data.result.original_link,
+          id: uuidv4(),
+        },
+      });
+      dispatch(successfullyShortened());
+    }
+  } else {
+    const response = await shortenURL('/shorten', {
+      params: { url: user },
+    }).catch(err => {
+      if (err.response) {
+        dispatch(invalidLink());
+      }
+    });
+    if (response) {
+      dispatch({
+        type: FETCH_LINKS,
+        payload: {
+          shortenedLink: response.data.result.full_short_link,
+          originalLink: response.data.result.original_link,
+          id: uuidv4(),
+        },
+      });
+      dispatch(successfullyShortened());
+    }
   }
 };

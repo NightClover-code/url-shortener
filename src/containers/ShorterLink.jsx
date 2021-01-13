@@ -8,7 +8,6 @@ import {
   resetForm,
   successfullyShortened,
   userProvidedLink,
-  youtubeSpecial,
   fetchLink,
 } from '../actions';
 //importing components
@@ -17,21 +16,19 @@ import ShortenedLinks from './ShortenedLinks';
 import { connect } from 'react-redux';
 //shorter link component
 const ShorterLink = ({
-  videoId,
   user,
-  youtubeSpecial,
   inputChanged,
   resetForm,
   loading,
+
   noLinkProvided,
   userProvidedLink,
   alreadyShortened,
   fetchLink,
-  links,
 }) => {
   //refs
   const inputRef = useRef(null);
-  const onFormSubmit = async event => {
+  const onFormSubmit = event => {
     //preventing default action on submit
     event.preventDefault();
     //reseting the form
@@ -41,11 +38,7 @@ const ShorterLink = ({
       userProvidedLink();
       inputRef.current.classList.remove('red__border');
       //checking if user enters a youtube shortened link
-      if (user.includes('youtu.be/')) {
-        youtubeSpecial(user);
-        resetForm();
-        //TODO add redux thunk
-      } else if (user.includes('https://shrtco.de/')) {
+      if (user.includes('https://shrtco.de/')) {
         alreadyShortened();
       } else {
         fetchLink(user);
@@ -79,13 +72,10 @@ const ShorterLink = ({
 const mapStateToProps = state => {
   return {
     user: state.userInfo.user,
-    videoId: state.userInfo.videoId,
     loading: state.loading,
-    links: state.links,
   };
 };
 export default connect(mapStateToProps, {
-  youtubeSpecial,
   inputChanged,
   resetForm,
   invalidLink,

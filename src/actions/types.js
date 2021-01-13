@@ -1,7 +1,6 @@
 export const CLICK_OUT_OF_NAV = 'CLICK_OUT_OF_NAV';
 export const CLICK_ON_MENU = 'CLICK_ON_MENU';
 export const INPUT_CHANGED = 'INPUT_CHANGED';
-export const YOUTUBE_SPECIAL_LINKS = 'YOUTUBE_SPECIAL_LINKS';
 export const FORM_RESET = 'FORM_RESET';
 export const USER_ENTERS_URL = 'USER_ENTERS_URL';
 export const NO_URL_PROVIDED = 'NO_URL_PROVIDED';
