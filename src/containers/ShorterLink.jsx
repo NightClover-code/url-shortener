@@ -20,7 +20,6 @@ const ShorterLink = ({
   inputChanged,
   resetForm,
   loading,
-
   noLinkProvided,
   userProvidedLink,
   alreadyShortened,
@@ -31,14 +30,14 @@ const ShorterLink = ({
   const onFormSubmit = event => {
     //preventing default action on submit
     event.preventDefault();
-    //reseting the form
-    resetForm();
+
     //getting data from URL shortener API
     if (user !== '') {
       userProvidedLink();
       inputRef.current.classList.remove('red__border');
       //checking if user enters a youtube shortened link
-      if (user.includes('https://shrtco.de/')) {
+      if (user.includes('youtu.be/')) {
+      } else if (user.includes('https://shrtco.de/')) {
         alreadyShortened();
       } else {
         fetchLink(user);
@@ -47,6 +46,8 @@ const ShorterLink = ({
       inputRef.current.classList.add('red__border');
       noLinkProvided();
     }
+    //reseting the form
+    resetForm();
   };
   return (
     <div className="url__shortener">

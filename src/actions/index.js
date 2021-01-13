@@ -9,6 +9,7 @@ import {
   SUCCESSFULLY_SHORTENED_URL,
   USER_ENTERS_URL,
   FETCH_LINKS,
+  YOUTUBE_SPECIAL_USER,
 } from '../actions/types';
 //importing api call
 import shortenURL from '../API/shortenURL';
@@ -67,44 +68,22 @@ export const alreadyShortened = () => {
   };
 };
 export const fetchLink = user => async dispatch => {
-  if (user.includes('youtu.be/')) {
-    const videoId = user.slice(17);
-    const response = await shortenURL('/shorten', {
-      params: { url: `https://youtube.com/watch?v=${videoId}` },
-    }).catch(err => {
-      if (err.response) {
-        dispatch(invalidLink());
-      }
-    });
-    if (response) {
-      dispatch({
-        type: FETCH_LINKS,
-        payload: {
-          shortenedLink: response.data.result.full_short_link,
-          originalLink: response.data.result.original_link,
-          id: uuidv4(),
-        },
-      });
-      dispatch(successfullyShortened());
+  const response = await shortenURL('/shorten', {
+    params: { url: user },
+  }).catch(err => {
+    if (err.response) {
+      dispatch(invalidLink());
     }
-  } else {
-    const response = await shortenURL('/shorten', {
-      params: { url: user },
-    }).catch(err => {
-      if (err.response) {
-        dispatch(invalidLink());
-      }
+  });
+  if (response) {
+    dispatch({
+      type: FETCH_LINKS,
+      payload: {
+        shortenedLink: response.data.result.full_short_link,
+        originalLink: response.data.result.original_link,
+        id: uuidv4(),
+      },
     });
-    if (response) {
-      dispatch({
-        type: FETCH_LINKS,
-        payload: {
-          shortenedLink: response.data.result.full_short_link,
-          originalLink: response.data.result.original_link,
-          id: uuidv4(),
-        },
-      });
-      dispatch(successfullyShortened());
-    }
+    dispatch(successfullyShortened());
   }
 };
