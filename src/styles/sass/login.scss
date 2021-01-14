@@ -1,0 +1,23 @@
+@import './variables';
+.login__page {
+  margin: auto;
+  overflow: hidden;
+  min-height: 100vh;
+  width: 100%;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(
+    to bottom,
+    $dark_violet,
+    $cyan
+  );
+  .wrapper {
+    margin: auto;
+    min-width: 250px;
+    max-width: 1600px;
+    width: 75%;
+    @media screen and (max-width: 1100px) {
+      width: 90%;
+    }
+  }
+}

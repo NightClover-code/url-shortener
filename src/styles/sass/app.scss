@@ -21,7 +21,8 @@
   width: 100%;
   font-size: 18px;
   font-family: 'Poppins', sans-serif;
-  background: url('../images/illustration-working.svg') no-repeat;
+  background: url('../images/illustration-working.svg')
+    no-repeat;
   background-position: 110% 150px;
   @media screen and (max-width: 1300px) {
     background-position: 140% 150px;

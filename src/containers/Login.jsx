@@ -1,9 +1,17 @@
-import React from 'react';
+import '../../src/styles/css/login.css';
+
 import { Field, reduxForm } from 'redux-form';
-//importing connect
-import { connect } from 'react-redux';
-//importing link from react router
+
 import { Link } from 'react-router-dom';
+import React from 'react';
+import { connect } from 'react-redux';
+
+//importing styles
+
+//importing link from react router
+
+//importing connect
+
 //login component
 const Login = () => {
   const renderLogin = ({ label, input, type }) => {
@@ -34,7 +42,9 @@ const Login = () => {
                 type="password"
               />
             </form>
-            <Link className="forgot__password">Forgot Password?</Link>
+            <Link className="forgot__password">
+              Forgot Password?
+            </Link>
             <Link className="login__button">Login</Link>
             <div className="not__a__member">
               <p>Not a member?</p>
