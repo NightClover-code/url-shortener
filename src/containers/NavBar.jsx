@@ -1,6 +1,8 @@
 import React from 'react';
 //improting connect from react-redux
 import { connect } from 'react-redux';
+//importing link from react-router
+import { Link } from 'react-router-dom';
 //nav bar component
 const NavBar = ({ isNavOpen }) => {
   return (
@@ -18,11 +20,13 @@ const NavBar = ({ isNavOpen }) => {
       </div>
       <div className="account__list" id="account-list">
         <li className="list__item login" data-id="nav-item">
-          Login
+          <Link to="/login" className="login__link">
+            Login
+          </Link>
         </li>
-        <li className="sign__up__button" data-id="nav-item">
+        <Link to="/signup" className="sign__up__link">
           Sign Up
-        </li>
+        </Link>
       </div>
     </nav>
   );
