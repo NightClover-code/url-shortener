@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { Field, reduxForm } from 'redux-form';
 //importing actions
 import {
   alreadyShortened,
