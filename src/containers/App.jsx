@@ -25,9 +25,7 @@ const App = ({ isNavOpen, clickedOutOfNav }) => {
   };
   return (
     <div
-      className={`app__container ${
-        isNavOpen ? 'overlay' : ''
-      }`}
+      className={`app__container ${isNavOpen ? 'overlay' : ''}`}
       onClick={e => onAppClick(e.target)}
     >
       <div className="wrapper">
