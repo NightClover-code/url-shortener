@@ -1,24 +1,11 @@
-import {
-  INPUT_CHANGED,
-  YOUTUBE_SPECIAL_LINKS,
-  FORM_RESET,
-} from '../actions/types';
-//initial state
-const INITIAL_STATE = {
-  user: '',
-  videoId: null,
-};
-const userReducer = (state = INITIAL_STATE, action) => {
+import { INPUT_CHANGED, FORM_RESET } from '../actions/types';
+
+const userReducer = (state = '', action) => {
   switch (action.type) {
     case INPUT_CHANGED:
-      return { ...state, user: action.payload };
-    case YOUTUBE_SPECIAL_LINKS:
-      return {
-        user: action.payload.user,
-        videoId: action.payload.videoId,
-      };
+      return action.payload;
     case FORM_RESET:
-      return { ...state, user: '' };
+      return '';
     default:
       return state;
   }
