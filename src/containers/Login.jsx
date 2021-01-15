@@ -1,24 +1,24 @@
+import React from 'react';
+//importing styles
 import '../../src/styles/css/login.css';
 
 import { Field, reduxForm } from 'redux-form';
 
-import { Link } from 'react-router-dom';
-import React from 'react';
-import { connect } from 'react-redux';
-
-//importing styles
-
 //importing link from react router
-
+import { Link } from 'react-router-dom';
 //importing connect
-
+import { connect } from 'react-redux';
 //login component
 const Login = () => {
-  const renderLogin = ({ label, input, type }) => {
+  const renderLogin = ({ placeholder, input, source, type }) => {
     return (
       <div className="input__container">
-        <label>{label}</label>
-        <input type={type} />
+        <div className="input__container">
+          <input type={type} placeholder={placeholder} />
+          <div className="icon__input">
+            <img src={`./images/${source}`} alt="" />
+          </div>
+        </div>
       </div>
     );
   };
@@ -27,28 +27,45 @@ const Login = () => {
       <div className="wrapper">
         <div className="login__card">
           <div className="login__card__container">
-            <h1>Log In</h1>
-            <form>
-              <Field
-                name="email"
-                component={renderLogin}
-                label="Email"
-                type="email"
-              />
-              <Field
-                name="password"
-                component={renderLogin}
-                label="Password"
-                type="password"
-              />
-            </form>
-            <Link className="forgot__password">
-              Forgot Password?
-            </Link>
-            <Link className="login__button">Login</Link>
-            <div className="not__a__member">
-              <p>Not a member?</p>
-              <Link to="/signup">Signup now</Link>
+            <div className="illustration">
+              <img src="./images/login.svg" alt="login" />
+            </div>
+            <div className="text__content">
+              <h1>Log In to Shortify</h1>
+              <div className="social__media">
+                <div className="facebook__icon icon">
+                  <i class="fab fa-facebook-f"></i>
+                </div>
+                <div className="google__icon icon">
+                  <i class="fab fa-google"></i>
+                </div>
+                <div className="twitter__icon icon">
+                  <i class="fab fa-twitter"></i>
+                </div>
+              </div>
+              <p>or use your email account:</p>
+              <form>
+                <Field
+                  name="email"
+                  component={renderLogin}
+                  placeholder="Email"
+                  type="email"
+                  source="icon-email.svg"
+                />
+                <Field
+                  name="password"
+                  component={renderLogin}
+                  placeholder="Password"
+                  type="password"
+                  source="icon-password.svg"
+                />
+              </form>
+              <Link className="forgot__password">Forgot your password?</Link>
+              <Link className="login__button">LOGIN</Link>
+              {/* <div className="not__a__member">
+                <p>Not a member?</p>
+                <Link to="/signup">Signup now</Link>
+              </div> */}
             </div>
           </div>
         </div>

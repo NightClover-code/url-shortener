@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
 .login__page {
   margin: auto;
   overflow: hidden;
@@ -5,8 +6,22 @@
   width: 100%;
   font-size: 18px;
   font-family: 'Poppins', sans-serif;
-  background: -webkit-gradient(linear, left top, left bottom, from(#3b3054), to(#2acfcf));
-  background: linear-gradient(to bottom, #3b3054, #2acfcf);
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (max-width: 1100px) {
+  .login__page {
+    background-color: #9479bb;
+  }
 }
 
 .login__page .wrapper {
@@ -20,5 +35,221 @@
   .login__page .wrapper {
     width: 90%;
   }
+}
+
+.login__page .wrapper .login__card {
+  background-color: #fff;
+  -webkit-box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.login__page .wrapper .login__card .login__card__container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 70vh;
+      grid-template-rows: 70vh;
+  margin: auto;
+}
+
+@media screen and (max-width: 1100px) {
+  .login__page .wrapper .login__card .login__card__container {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    width: 90%;
+  }
+}
+
+.login__page .wrapper .login__card .login__card__container .illustration {
+  background-color: #9479bb;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login__page .wrapper .login__card .login__card__container .illustration img {
+  width: 95%;
+}
+
+@media screen and (max-width: 1100px) {
+  .login__page .wrapper .login__card .login__card__container .illustration {
+    display: none;
+  }
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content {
+  color: #3b3054;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content h1 {
+  text-align: center;
+  font-size: 50px;
+  color: #3b3054;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content .social__media {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 180px;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px auto;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content .social__media .icon {
+  border-radius: 50%;
+  border: 1px solid #3b3054;
+  padding: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content .social__media .icon:hover {
+  background-color: #3b3054;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content .social__media .icon:hover i {
+  color: #fff;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content .social__media .icon i {
+  color: #3b3054;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content .social__media .facebook__icon {
+  padding: 12px 15px;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content p {
+  margin: 10px auto;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content form .input__container {
+  position: relative;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content form .input__container .icon__input {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  -webkit-transform: translateY(-35%);
+          transform: translateY(-35%);
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content form .input__container .icon__input img {
+  color: #ccc !important;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content form .input__container input {
+  width: 400px;
+  height: 40px;
+  margin: 5px auto;
+  background-color: #eff1f7;
+  border: none;
+  outline: none;
+  padding: 30px 60px;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  border-radius: 30px;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content form .input__container input::-webkit-input-placeholder {
+  color: #747474;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content form .input__container input:-ms-input-placeholder {
+  color: #747474;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content form .input__container input::-ms-input-placeholder {
+  color: #747474;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content form .input__container input::placeholder {
+  color: #747474;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content .forgot__password {
+  text-decoration: none;
+  line-height: 2.2;
+  color: #3b3054;
+  border-bottom: 1px solid #b3b1b1;
+  margin: 10px auto;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content .login__button {
+  letter-spacing: 2px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #fff;
+  background-color: #3b3054;
+  list-style: none;
+  width: 220px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 30px;
+  margin: 20px auto;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content .login__button:hover {
+  opacity: 0.7;
 }
 /*# sourceMappingURL=login.css.map */
