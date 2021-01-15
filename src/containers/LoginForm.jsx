@@ -1,8 +1,11 @@
 import React from 'react';
+//importing field from redux form
 import { Field } from 'redux-form';
 //importing link from react router
 import { Link } from 'react-router-dom';
+//login form component
 const LoginForm = () => {
+  //input component
   const renderLogin = ({ placeholder, input, source, type }) => {
     return (
       <div className="input__container">

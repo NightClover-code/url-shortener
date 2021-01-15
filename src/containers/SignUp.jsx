@@ -36,7 +36,7 @@ class SignUp extends Component {
     );
   }
 }
-
+//checking if user entered email and password
 const validate = ({ email, password }) => {
   const errors = {};
   if (!email) {
@@ -47,7 +47,6 @@ const validate = ({ email, password }) => {
   }
   return errors;
 };
-
 const formWrapper = reduxForm({
   form: 'signUpForm',
   validate,

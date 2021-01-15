@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Field } from 'redux-form';
 //form component
 class SignUpForm extends Component {
+  //rendered input component
   renderSignUp = ({ type, placeholder, input, source }) => {
     return (
       <div className="input__container">
@@ -20,6 +21,7 @@ class SignUpForm extends Component {
       </div>
     );
   };
+  //receiving submited values
   onFormSubmit = values => {
     console.log(values);
   };
