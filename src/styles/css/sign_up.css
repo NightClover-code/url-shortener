@@ -1,0 +1,288 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+.sign__up__page {
+  margin: auto;
+  overflow: hidden;
+  min-height: 100vh;
+  width: 100%;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media screen and (max-width: 1100px) {
+  .sign__up__page {
+    background-color: #1e9494;
+  }
+}
+
+.sign__up__page .wrapper {
+  margin: auto;
+  min-width: 250px;
+  max-width: 1600px;
+  width: 75%;
+}
+
+@media screen and (max-width: 1100px) {
+  .sign__up__page .wrapper {
+    width: 90%;
+  }
+}
+
+.sign__up__page .wrapper .sign__up__card {
+  background-color: #fff;
+  -webkit-box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.4);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  min-height: 70vh;
+  margin: auto;
+}
+
+@media screen and (max-width: 1100px) {
+  .sign__up__page .wrapper .sign__up__card .sign__up__card__container {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .sign__up__page .wrapper .sign__up__card .sign__up__card__container {
+    min-height: 80vh;
+  }
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .illustration {
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  background-color: #1e9494;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .illustration img {
+  width: 95%;
+}
+
+@media screen and (max-width: 1100px) {
+  .sign__up__page .wrapper .sign__up__card .sign__up__card__container .illustration {
+    display: none;
+  }
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content {
+  position: relative;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
+  color: #1e9494;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 95%;
+}
+
+@media screen and (max-width: 1100px) {
+  .sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content {
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    margin: auto;
+  }
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content h1 {
+  margin: 40px auto;
+  text-align: center;
+  font-size: 45px;
+  color: #1e9494;
+}
+
+@media screen and (max-width: 500px) {
+  .sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content h1 {
+    font-size: 35px;
+    width: 95%;
+  }
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content p {
+  margin: 10px auto;
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content form {
+  text-align: center;
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content form .input__container {
+  position: relative;
+}
+
+@media screen and (max-width: 1100px) {
+  .sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content form .input__container {
+    margin: auto;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content form .input__container {
+    margin: auto;
+    width: 100%;
+  }
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content form .input__container .icon__input {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  -webkit-transform: translateY(-35%);
+          transform: translateY(-35%);
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content form .input__container .icon__input img {
+  color: #ccc !important;
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content form .input__container input {
+  width: 400px;
+  height: 40px;
+  margin: 8px auto;
+  background-color: #eff1f7;
+  border: none;
+  outline: none;
+  padding: 30px 60px;
+  font-size: 18px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  border-radius: 30px;
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content form .input__container input::-webkit-input-placeholder {
+  color: #747474;
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content form .input__container input:-ms-input-placeholder {
+  color: #747474;
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content form .input__container input::-ms-input-placeholder {
+  color: #747474;
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content form .input__container input::placeholder {
+  color: #747474;
+}
+
+@media screen and (max-width: 1100px) {
+  .sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content form .input__container input {
+    width: 100%;
+  }
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content form .sign__up__button {
+  letter-spacing: 2px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #fff;
+  outline: 0;
+  border: 0;
+  background-color: #1e9494;
+  list-style: none;
+  width: 220px;
+  font-family: 'Poppins', sans-serif;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 30px;
+  margin: 40px auto 20px auto;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content form .sign__up__button:hover {
+  opacity: 0.7;
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content .already__have__account {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px auto;
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content .already__have__account p {
+  padding: 0 10px;
+  color: #3b3054;
+}
+
+.sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content .already__have__account .login__now {
+  color: #1e9494;
+}
+
+@media screen and (max-width: 1100px) {
+  .sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content .already__have__account {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: auto;
+  }
+}
+/*# sourceMappingURL=sign_up.css.map */

@@ -59,12 +59,14 @@ const Login = () => {
                   type="password"
                   source="icon-password.svg"
                 />
+                <Link className="forgot__password">Forgot your password?</Link>
+                <button className="login__button">LOGIN</button>
               </form>
-              <Link className="forgot__password">Forgot your password?</Link>
-              <button className="login__button">LOGIN</button>
               <div className="not__a__member">
                 <p>Not a member?</p>
-                <Link to="/signup">Signup now</Link>
+                <Link to="/signup" className="sign__up__now">
+                  Signup now
+                </Link>
               </div>
             </div>
           </div>

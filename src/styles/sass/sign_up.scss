@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 @import './variables';
-.login__page {
+.sign__up__page {
   margin: auto;
   overflow: hidden;
   min-height: 100vh;
@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   @media screen and (max-width: 1100px) {
-    background-color: #7965a6;
+    background-color: $dark_cyan;
   }
   .wrapper {
     margin: auto;
@@ -22,12 +22,12 @@
     @media screen and (max-width: 1100px) {
       width: 90%;
     }
-    .login__card {
+    .sign__up__card {
       background-color: #fff;
       box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.4);
       border-radius: 20px;
       overflow: hidden;
-      .login__card__container {
+      .sign__up__card__container {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
@@ -45,7 +45,7 @@
         .illustration {
           grid-column-start: 2;
           grid-row: 1;
-          background-color: #7965a6;
+          background-color: #1e9494;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -59,7 +59,7 @@
         .text__content {
           position: relative;
           grid-column-start: 1;
-          color: $dark_violet;
+          color: $dark_cyan;
           margin: auto;
           display: flex;
           flex-direction: column;
@@ -71,47 +71,13 @@
             margin: auto;
           }
           h1 {
-            margin: 30px auto 10px auto;
+            margin: 40px auto;
             text-align: center;
             font-size: 45px;
-            color: $dark_violet;
+            color: $dark_cyan;
             @media screen and (max-width: 500px) {
               font-size: 35px;
               width: 95%;
-            }
-          }
-          .social__media {
-            display: flex;
-            width: 180px;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
-            margin: 20px auto;
-            .icon {
-              border-radius: 50%;
-              border: 1px solid $dark_violet;
-              padding: 12px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              transition: all 0.2s ease-in-out;
-              cursor: pointer;
-              &:hover {
-                background-color: $dark_violet;
-              }
-              &:hover i {
-                color: #fff;
-              }
-              i {
-                color: $dark_violet;
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: all 0.2s ease-in-out;
-              }
-            }
-            .facebook__icon {
-              padding: 12px 15px;
             }
           }
           p {
@@ -141,7 +107,7 @@
               input {
                 width: 400px;
                 height: 40px;
-                margin: 5px auto;
+                margin: 8px auto;
                 background-color: $grayish_background;
                 border: none;
                 outline: none;
@@ -158,49 +124,41 @@
                 }
               }
             }
-            .forgot__password {
-              text-decoration: none;
-              padding: 10px 0;
-              color: $dark_violet;
-              border-bottom: 1px solid rgb(179, 177, 177);
-              line-height: 3.2;
-            }
-            .login__button {
+            .sign__up__button {
               letter-spacing: 2px;
               text-decoration: none;
               font-size: 18px;
               color: #fff;
               outline: 0;
               border: 0;
-              background-color: $dark_violet;
+              background-color: $dark_cyan;
               list-style: none;
               width: 220px;
+              font-family: 'Poppins', sans-serif;
               height: 50px;
               display: flex;
               justify-content: center;
               align-items: center;
               border-radius: 30px;
-              margin: 20px auto;
+              margin: 40px auto 20px auto;
               cursor: pointer;
               transition: all 0.2s ease-in-out;
               &:hover {
                 opacity: 0.7;
-                // border: 1px solid $dark_violet;
-                // background-color: #fff;
-                // color: $dark_violet;
               }
             }
           }
-          .not__a__member {
+          .already__have__account {
             display: flex;
             justify-content: center;
             align-items: center;
             margin: 20px auto;
             p {
               padding: 0 10px;
-            }
-            .sign__up__now {
               color: $dark_violet;
+            }
+            .login__now {
+              color: $dark_cyan;
             }
             @media screen and (max-width: 1100px) {
               position: relative;

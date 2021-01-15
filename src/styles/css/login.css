@@ -131,13 +131,13 @@
 .login__page .wrapper .login__card .login__card__container .text__content h1 {
   margin: 30px auto 10px auto;
   text-align: center;
-  font-size: calc(13px + 4vh);
+  font-size: 45px;
   color: #3b3054;
 }
 
 @media screen and (max-width: 500px) {
   .login__page .wrapper .login__card .login__card__container .text__content h1 {
-    font-size: calc(10px + 4vh);
+    font-size: 35px;
     width: 95%;
   }
 }
@@ -199,6 +199,10 @@
 
 .login__page .wrapper .login__card .login__card__container .text__content p {
   margin: 10px auto;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content form {
+  text-align: center;
 }
 
 .login__page .wrapper .login__card .login__card__container .text__content form .input__container {
@@ -267,15 +271,15 @@
   }
 }
 
-.login__page .wrapper .login__card .login__card__container .text__content .forgot__password {
+.login__page .wrapper .login__card .login__card__container .text__content form .forgot__password {
   text-decoration: none;
-  line-height: 2.2;
+  padding: 10px 0;
   color: #3b3054;
   border-bottom: 1px solid #b3b1b1;
-  margin: 10px auto;
+  line-height: 3.2;
 }
 
-.login__page .wrapper .login__card .login__card__container .text__content .login__button {
+.login__page .wrapper .login__card .login__card__container .text__content form .login__button {
   letter-spacing: 2px;
   text-decoration: none;
   font-size: 18px;
@@ -302,7 +306,7 @@
   transition: all 0.2s ease-in-out;
 }
 
-.login__page .wrapper .login__card .login__card__container .text__content .login__button:hover {
+.login__page .wrapper .login__card .login__card__container .text__content form .login__button:hover {
   opacity: 0.7;
 }
 
@@ -321,6 +325,10 @@
 
 .login__page .wrapper .login__card .login__card__container .text__content .not__a__member p {
   padding: 0 10px;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content .not__a__member .sign__up__now {
+  color: #3b3054;
 }
 
 @media screen and (max-width: 1100px) {
