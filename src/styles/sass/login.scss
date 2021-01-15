@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   @media screen and (max-width: 1100px) {
-    background-color: rgb(148, 121, 187);
+    background-color: #7965a6;
   }
   .wrapper {
     margin: auto;
@@ -30,14 +30,22 @@
       .login__card__container {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 70vh;
+        grid-template-rows: auto;
+        min-height: 70vh;
         margin: auto;
         @media screen and (max-width: 1100px) {
           grid-template-columns: 1fr;
-          width: 90%;
+          width: 95%;
+        }
+        @media screen and (max-width: 500px) {
+          min-height: 80vh;
+        }
+        @media screen and (max-width: 300px) {
         }
         .illustration {
-          background-color: rgb(148, 121, 187);
+          grid-column-start: 2;
+          grid-row: 1;
+          background-color: #7965a6;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -49,17 +57,28 @@
           }
         }
         .text__content {
+          position: relative;
+          grid-column-start: 1;
           color: $dark_violet;
           margin: auto;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          width: 100%;
+          width: 95%;
+          @media screen and (max-width: 1100px) {
+            align-items: stretch;
+            margin: auto;
+          }
           h1 {
+            margin: 30px auto 10px auto;
             text-align: center;
-            font-size: 50px;
+            font-size: calc(13px + 4vh);
             color: $dark_violet;
+            @media screen and (max-width: 500px) {
+              font-size: calc(10px + 4vh);
+              width: 95%;
+            }
           }
           .social__media {
             display: flex;
@@ -100,11 +119,19 @@
           }
           form {
             .input__container {
+              @media screen and (max-width: 1100px) {
+                margin: auto;
+                width: 90%;
+              }
+              @media screen and (max-width: 700px) {
+                margin: auto;
+                width: 100%;
+              }
               position: relative;
               .icon__input {
                 position: absolute;
                 top: 50%;
-                left: 5%;
+                left: 20px;
                 transform: translateY(-35%);
                 img {
                   color: #ccc !important;
@@ -125,6 +152,9 @@
                 &::placeholder {
                   color: rgb(116, 116, 116);
                 }
+                @media screen and (max-width: 1100px) {
+                  width: 100%;
+                }
               }
             }
           }
@@ -140,6 +170,8 @@
             text-decoration: none;
             font-size: 18px;
             color: #fff;
+            outline: 0;
+            border: 0;
             background-color: $dark_violet;
             list-style: none;
             width: 220px;
@@ -156,6 +188,22 @@
               // border: 1px solid $dark_violet;
               // background-color: #fff;
               // color: $dark_violet;
+            }
+          }
+          .not__a__member {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            p {
+              padding: 0 10px;
+            }
+            @media screen and (max-width: 1100px) {
+              position: relative;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin: auto;
             }
           }
         }

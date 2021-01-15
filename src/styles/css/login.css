@@ -20,7 +20,7 @@
 
 @media screen and (max-width: 1100px) {
   .login__page {
-    background-color: #9479bb;
+    background-color: #7965a6;
   }
 }
 
@@ -50,8 +50,9 @@
   display: grid;
   -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 70vh;
-      grid-template-rows: 70vh;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  min-height: 70vh;
   margin: auto;
 }
 
@@ -59,12 +60,22 @@
   .login__page .wrapper .login__card .login__card__container {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
-    width: 90%;
+    width: 95%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .login__page .wrapper .login__card .login__card__container {
+    min-height: 80vh;
   }
 }
 
 .login__page .wrapper .login__card .login__card__container .illustration {
-  background-color: #9479bb;
+  -ms-grid-column: 2;
+      grid-column-start: 2;
+  -ms-grid-row: 1;
+  grid-row: 1;
+  background-color: #7965a6;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -87,6 +98,9 @@
 }
 
 .login__page .wrapper .login__card .login__card__container .text__content {
+  position: relative;
+  -ms-grid-column: 1;
+      grid-column-start: 1;
   color: #3b3054;
   margin: auto;
   display: -webkit-box;
@@ -102,13 +116,30 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
+  width: 95%;
+}
+
+@media screen and (max-width: 1100px) {
+  .login__page .wrapper .login__card .login__card__container .text__content {
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    margin: auto;
+  }
 }
 
 .login__page .wrapper .login__card .login__card__container .text__content h1 {
+  margin: 30px auto 10px auto;
   text-align: center;
-  font-size: 50px;
+  font-size: calc(13px + 4vh);
   color: #3b3054;
+}
+
+@media screen and (max-width: 500px) {
+  .login__page .wrapper .login__card .login__card__container .text__content h1 {
+    font-size: calc(10px + 4vh);
+    width: 95%;
+  }
 }
 
 .login__page .wrapper .login__card .login__card__container .text__content .social__media {
@@ -174,10 +205,24 @@
   position: relative;
 }
 
+@media screen and (max-width: 1100px) {
+  .login__page .wrapper .login__card .login__card__container .text__content form .input__container {
+    margin: auto;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .login__page .wrapper .login__card .login__card__container .text__content form .input__container {
+    margin: auto;
+    width: 100%;
+  }
+}
+
 .login__page .wrapper .login__card .login__card__container .text__content form .input__container .icon__input {
   position: absolute;
   top: 50%;
-  left: 5%;
+  left: 20px;
   -webkit-transform: translateY(-35%);
           transform: translateY(-35%);
 }
@@ -216,6 +261,12 @@
   color: #747474;
 }
 
+@media screen and (max-width: 1100px) {
+  .login__page .wrapper .login__card .login__card__container .text__content form .input__container input {
+    width: 100%;
+  }
+}
+
 .login__page .wrapper .login__card .login__card__container .text__content .forgot__password {
   text-decoration: none;
   line-height: 2.2;
@@ -229,6 +280,8 @@
   text-decoration: none;
   font-size: 18px;
   color: #fff;
+  outline: 0;
+  border: 0;
   background-color: #3b3054;
   list-style: none;
   width: 220px;
@@ -251,5 +304,38 @@
 
 .login__page .wrapper .login__card .login__card__container .text__content .login__button:hover {
   opacity: 0.7;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content .not__a__member {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 20px auto;
+}
+
+.login__page .wrapper .login__card .login__card__container .text__content .not__a__member p {
+  padding: 0 10px;
+}
+
+@media screen and (max-width: 1100px) {
+  .login__page .wrapper .login__card .login__card__container .text__content .not__a__member {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    margin: auto;
+  }
 }
 /*# sourceMappingURL=login.css.map */

@@ -61,11 +61,11 @@ const Login = () => {
                 />
               </form>
               <Link className="forgot__password">Forgot your password?</Link>
-              <Link className="login__button">LOGIN</Link>
-              {/* <div className="not__a__member">
+              <button className="login__button">LOGIN</button>
+              <div className="not__a__member">
                 <p>Not a member?</p>
                 <Link to="/signup">Signup now</Link>
-              </div> */}
+              </div>
             </div>
           </div>
         </div>

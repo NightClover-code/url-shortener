@@ -828,10 +828,6 @@ nav .list__item:hover {
   }
 }
 
-nav .login:hover {
-  color: #fff;
-}
-
 @media screen and (max-width: 800px) {
   nav .login {
     text-align: center;
@@ -841,15 +837,29 @@ nav .login:hover {
 }
 
 nav .login .login__link {
+  list-style: none;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
-  color: inherit;
-  width: 100%;
+  color: #9e9aa7;
 }
 
 nav .login .login__link:hover {
   color: #232127;
+}
+
+@media screen and (max-width: 800px) {
+  nav .login .login__link {
+    color: #fff;
+    line-height: 3.8;
+    font-size: 18px;
+  }
+  nav .login .login__link:hover {
+    color: #2acfcf;
+  }
 }
 
 nav .sign__up__link {
@@ -895,6 +905,7 @@ nav .sign__up__link:hover {
 }
 
 .app__container {
+  font-weight: 500;
   position: relative;
   margin: auto;
   overflow: hidden;

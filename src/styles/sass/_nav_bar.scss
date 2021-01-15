@@ -56,21 +56,29 @@ nav {
   }
 
   .login {
-    &:hover {
-      color: #fff;
-    }
     @media screen and (max-width: 800px) {
       text-align: center;
       width: 90%;
       border-top: 1px solid $grayish_violet;
     }
     .login__link {
+      list-style: none;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
       transition: all 0.2s ease-in-out;
       text-decoration: none;
-      color: inherit;
-      width: 100%;
+      color: $grayish_violet;
       &:hover {
         color: $very_dark_violet;
+      }
+      @media screen and (max-width: 800px) {
+        color: #fff;
+        line-height: 3.8;
+        font-size: 18px;
+        &:hover {
+          color: $cyan;
+        }
       }
     }
   }
