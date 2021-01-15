@@ -13,12 +13,6 @@ import Statistics from '../components/Statistics';
 import { connect } from 'react-redux';
 
 //importing components
-
-
-
-
-
-
 const App = ({ isNavOpen, clickedOutOfNav }) => {
   //functions
   //toggle isNavOpen
@@ -32,9 +26,7 @@ const App = ({ isNavOpen, clickedOutOfNav }) => {
   };
   return (
     <div
-      className={`app__container ${
-        isNavOpen ? 'overlay' : ''
-      }`}
+      className={`app__container ${isNavOpen ? 'overlay' : ''}`}
       onClick={e => onAppClick(e.target)}
     >
       <div className="wrapper">

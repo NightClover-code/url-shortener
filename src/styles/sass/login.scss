@@ -89,7 +89,7 @@
             margin: 20px auto;
             .icon {
               border-radius: 50%;
-              border: 1px solid $dark_violet;
+              border: 1px solid #c2c1c1;
               padding: 12px;
               display: flex;
               justify-content: center;
@@ -145,6 +145,7 @@
                 background-color: $grayish_background;
                 border: none;
                 outline: none;
+                border: 1px solid #c2c1c1;
                 padding: 30px 60px;
                 font-size: 18px;
                 font-family: 'Poppins', sans-serif;

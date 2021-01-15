@@ -14,7 +14,12 @@ const Login = () => {
     return (
       <div className="input__container">
         <div className="input__container">
-          <input type={type} placeholder={placeholder} />
+          <input
+            type={type}
+            placeholder={placeholder}
+            autoComplete="off"
+            {...input}
+          />
           <div className="icon__input">
             <img src={`./images/${source}`} alt="" />
           </div>
@@ -34,13 +39,13 @@ const Login = () => {
               <h1>Log In to Shortify</h1>
               <div className="social__media">
                 <div className="facebook__icon icon">
-                  <i class="fab fa-facebook-f"></i>
+                  <i className="fab fa-facebook-f"></i>
                 </div>
                 <div className="google__icon icon">
-                  <i class="fab fa-google"></i>
+                  <i className="fab fa-google"></i>
                 </div>
                 <div className="twitter__icon icon">
-                  <i class="fab fa-twitter"></i>
+                  <i className="fab fa-twitter"></i>
                 </div>
               </div>
               <p>or use your email account:</p>
@@ -87,9 +92,9 @@ const validate = ({ email, password }) => {
   return errors;
 };
 
-const formWrapper = reduxForm({
+export default reduxForm({
   form: 'loginForm',
   validate,
 })(Login);
 
-export default connect(null)(formWrapper);
+// export default connect(null)(formWrapper);

@@ -190,6 +190,7 @@
   padding: 30px 60px;
   font-size: 18px;
   font-family: 'Poppins', sans-serif;
+  border: 1px solid #c2c1c1;
   font-weight: 400;
   border-radius: 30px;
 }

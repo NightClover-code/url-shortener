@@ -159,7 +159,7 @@
 
 .login__page .wrapper .login__card .login__card__container .text__content .social__media .icon {
   border-radius: 50%;
-  border: 1px solid #3b3054;
+  border: 1px solid #c2c1c1;
   padding: 12px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -242,6 +242,7 @@
   background-color: #eff1f7;
   border: none;
   outline: none;
+  border: 1px solid #c2c1c1;
   padding: 30px 60px;
   font-size: 18px;
   font-family: 'Poppins', sans-serif;
