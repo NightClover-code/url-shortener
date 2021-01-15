@@ -1,32 +1,16 @@
 import React from 'react';
+//imoprting components
+import LoginForm from './LoginForm';
 //importing styles
 import '../../src/styles/css/login.css';
-
-import { Field, reduxForm } from 'redux-form';
-
+//importing redux form
+import { reduxForm } from 'redux-form';
 //importing link from react router
 import { Link } from 'react-router-dom';
 //importing connect
 import { connect } from 'react-redux';
 //login component
 const Login = () => {
-  const renderLogin = ({ placeholder, input, source, type }) => {
-    return (
-      <div className="input__container">
-        <div className="input__container">
-          <input
-            type={type}
-            placeholder={placeholder}
-            autoComplete="off"
-            {...input}
-          />
-          <div className="icon__input">
-            <img src={`./images/${source}`} alt="" />
-          </div>
-        </div>
-      </div>
-    );
-  };
   return (
     <div className="login__page">
       <div className="wrapper">
@@ -49,24 +33,7 @@ const Login = () => {
                 </div>
               </div>
               <p>or use your email account:</p>
-              <form>
-                <Field
-                  name="email"
-                  component={renderLogin}
-                  placeholder="Email"
-                  type="email"
-                  source="icon-email.svg"
-                />
-                <Field
-                  name="password"
-                  component={renderLogin}
-                  placeholder="Password"
-                  type="password"
-                  source="icon-password.svg"
-                />
-                <Link className="forgot__password">Forgot your password?</Link>
-                <button className="login__button">LOGIN</button>
-              </form>
+              <LoginForm />
               <div className="not__a__member">
                 <p>Not a member?</p>
                 <Link to="/signup" className="sign__up__now">
@@ -92,9 +59,9 @@ const validate = ({ email, password }) => {
   return errors;
 };
 
-export default reduxForm({
+const formWrapper = reduxForm({
   form: 'loginForm',
   validate,
 })(Login);
 
-// export default connect(null)(formWrapper);
+export default connect(null)(formWrapper);
