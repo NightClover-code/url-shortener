@@ -19,7 +19,7 @@ import shortenURL from '../API/shortenURL';
 //imoprting random id's to set as keys for list children
 import { v4 as uuidv4 } from 'uuid';
 //importing firebase
-import { auth, db } from '../auth/firebase';
+import { auth, db } from '../firebase';
 //action creators
 export const clickedOnMenu = () => {
   return {
