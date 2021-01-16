@@ -97,10 +97,14 @@ export const fetchLink = user => async dispatch => {
     dispatch(successfullyShortened());
   }
 };
-export const createUser = ({ password, email, username }) => async dispatch => {
+export const createUser = ({ password, email, username }) => async (
+  dispatch,
+  getState
+) => {
   try {
-    //creating a use with firebase
+    //creating a user with firebase
     const response = await auth.createUserWithEmailAndPassword(email, password);
+    //saving user's info in a state
     dispatch({
       type: CREATE_USER,
       payload: {
@@ -110,14 +114,18 @@ export const createUser = ({ password, email, username }) => async dispatch => {
         userId: response.user.uid,
         isSignedIn: true,
         error: '',
+        links: getState().links,
       },
     });
+    //saving the user to firebase firestoree
     db.collection('users').doc(response.user.uid).set({
       email,
       password,
       username,
       userId: response.user.uid,
+      links: getState().links,
     });
+    //redirecting to homepage
     history.push('/');
   } catch (error) {
     dispatch({
@@ -129,6 +137,7 @@ export const createUser = ({ password, email, username }) => async dispatch => {
   }
 };
 export const signUserOut = () => async dispatch => {
+  //signing out the user
   try {
     const response = await auth.signOut();
     dispatch({
@@ -140,8 +149,10 @@ export const signUserOut = () => async dispatch => {
         userId: null,
         isSignedIn: false,
         error: '',
+        links: [],
       },
     });
+    //clear local storage when signing out
     localStorage.setItem('user', JSON.stringify({}));
   } catch (error) {
     dispatch({
@@ -152,9 +163,14 @@ export const signUserOut = () => async dispatch => {
     });
   }
 };
-export const signUserIn = ({ email, password }) => async dispatch => {
+export const signUserIn = ({ email, password }) => async (
+  dispatch,
+  getState
+) => {
+  //loggin in the user
   try {
     const response = await auth.signInWithEmailAndPassword(email, password);
+    //getting user's info from firestore (username)
     db.collection('users')
       .doc(response.user.uid)
       .get()
@@ -168,9 +184,11 @@ export const signUserIn = ({ email, password }) => async dispatch => {
             userId: response.user.uid,
             isSignedIn: true,
             error: '',
+            links: getState().links,
           },
         });
       });
+    //redirecting the user
     history.push('/');
   } catch (error) {
     dispatch({

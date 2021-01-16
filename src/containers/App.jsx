@@ -1,18 +1,19 @@
-//importing styled
-
+//importing react
+import React, { useEffect } from 'react';
+//importing styles
 import '../styles/css/app.css';
-
+//importing actions
 import { clickedOnMenu, clickedOutOfNav, savingUser } from '../actions';
-
+//importing components
 import Boost from '../components/Boost';
 import Footer from '../components/Footer';
-import Header from './Header';
 import IntroSection from '../components/IntroSection';
-import React, { useEffect } from 'react';
+//importing containers
+import Header from './Header';
 import Statistics from '../components/Statistics';
+//importing connect from react redux
 import { connect } from 'react-redux';
-
-//importing components
+//app container
 const App = ({ isNavOpen, clickedOutOfNav, currentUser, savingUser }) => {
   useEffect(() => {
     //saving user after refresh

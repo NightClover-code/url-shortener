@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 //importing connect from react redux
 import { connect } from 'react-redux';
+import { db } from '../firebase';
 //shortenedLinks component
-const ShortenedLinks = ({ links }) => {
+const ShortenedLinks = ({ links, currentUser }) => {
   //copying to clipboard on button click
   const onCopyHandler = (e, str) => {
     //changing background and telling the user they copied the link
@@ -33,6 +34,7 @@ const ShortenedLinks = ({ links }) => {
 const mapStateToProps = state => {
   return {
     links: state.links,
+    currentUser: state.currentUser,
   };
 };
 export default connect(mapStateToProps)(ShortenedLinks);
