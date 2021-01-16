@@ -75,6 +75,7 @@ export const alreadyShortened = () => {
   };
 };
 export const fetchLink = user => async dispatch => {
+  //response from shortening link
   const response = await shortenURL('/shorten', {
     params: { url: user },
   }).catch(err => {
@@ -83,6 +84,7 @@ export const fetchLink = user => async dispatch => {
     }
   });
   if (response) {
+    //setting links as state
     dispatch({
       type: FETCH_LINKS,
       payload: {
@@ -91,11 +93,13 @@ export const fetchLink = user => async dispatch => {
         id: uuidv4(),
       },
     });
+    //set loading state to show success!
     dispatch(successfullyShortened());
   }
 };
 export const createUser = ({ password, email, username }) => async dispatch => {
   try {
+    //creating a use with firebase
     const response = await auth.createUserWithEmailAndPassword(email, password);
     dispatch({
       type: CREATE_USER,
