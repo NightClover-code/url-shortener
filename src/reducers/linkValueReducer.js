@@ -1,6 +1,6 @@
 import { INPUT_CHANGED, FORM_RESET } from '../actions/types';
 
-const userReducer = (state = '', action) => {
+const linkValueReducer = (state = '', action) => {
   switch (action.type) {
     case INPUT_CHANGED:
       return action.payload;
@@ -10,4 +10,4 @@ const userReducer = (state = '', action) => {
       return state;
   }
 };
-export default userReducer;
+export default linkValueReducer;

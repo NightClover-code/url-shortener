@@ -10,6 +10,12 @@ import SignUpForm from './SignUpForm';
 import { connect } from 'react-redux';
 //login component
 class SignUp extends Component {
+  //rendering errors
+  renderError({ error, touched }) {
+    if (touched && error) {
+      return <div className="header">{error}</div>;
+    }
+  }
   render() {
     return (
       <div className="sign__up__page">
@@ -21,7 +27,10 @@ class SignUp extends Component {
               </div>
               <div className="text__content">
                 <h1>Create Account</h1>
-                <SignUpForm onSubmit={this.props.handleSubmit} />
+                <SignUpForm
+                  onSubmit={this.props.handleSubmit}
+                  renderError={this.renderError}
+                />
                 <div className="already__have__account">
                   <p>Already have an account?</p>
                   <Link to="/login" className="login__now">
@@ -36,14 +45,27 @@ class SignUp extends Component {
     );
   }
 }
+
 //checking if user entered email and password
-const validate = ({ email, password }) => {
+const validate = ({ email, password, passwordConfirmed, username }) => {
   const errors = {};
   if (!email) {
-    errors.email = 'You must enter a email';
+    errors.email = 'You must enter an email';
   }
   if (!password) {
     errors.password = 'You must enter a password';
+  }
+  if (password !== passwordConfirmed) {
+    errors.passwordConfirmed = "Passwords don't match. Please try again.";
+  }
+  if (password && password.length < 8) {
+    errors.password = 'Password length must be atleast 8 characters';
+  }
+  if (password && password.length > 15) {
+    errors.password = 'Password length must not exceed 15 characters';
+  }
+  if (username && username.length < 4) {
+    errors.username = 'Please enter a longer username';
   }
   return errors;
 };

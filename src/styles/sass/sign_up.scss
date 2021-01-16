@@ -37,11 +37,6 @@
           grid-template-columns: 1fr;
           width: 95%;
         }
-        @media screen and (max-width: 500px) {
-          min-height: 80vh;
-        }
-        @media screen and (max-width: 300px) {
-        }
         .illustration {
           grid-column-start: 2;
           grid-row: 1;

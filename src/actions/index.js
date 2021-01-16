@@ -9,11 +9,14 @@ import {
   SUCCESSFULLY_SHORTENED_URL,
   USER_ENTERS_URL,
   FETCH_LINKS,
+  CREATE_USER,
 } from '../actions/types';
 //importing api call
 import shortenURL from '../API/shortenURL';
 //imoprting random id's to set as keys for list children
 import { v4 as uuidv4 } from 'uuid';
+//importing firebase
+import { auth, db } from '../auth/firebase';
 //action creators
 export const clickedOnMenu = () => {
   return {
@@ -85,4 +88,16 @@ export const fetchLink = user => async dispatch => {
     });
     dispatch(successfullyShortened());
   }
+};
+export const createUser = ({ password, email }) => async dispatch => {
+  const response = await auth.createUserWithEmailAndPassword(email, password);
+  dispatch({
+    type: CREATE_USER,
+    payload: {
+      email,
+      password,
+      userId: response.user.uid,
+      isSignedIn: true,
+    },
+  });
 };

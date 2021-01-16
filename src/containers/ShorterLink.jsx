@@ -21,7 +21,7 @@ import { connect } from 'react-redux';
 
 //shorter link component
 const ShorterLink = ({
-  user,
+  linkValue,
   inputChanged,
   resetForm,
   loading,
@@ -36,13 +36,13 @@ const ShorterLink = ({
   const onFormSubmit = event => {
     //preventing default action on submit
     event.preventDefault();
-    if (user !== '') {
+    if (linkValue !== '') {
       userProvidedLink();
       inputRef.current.classList.remove('red__border');
-      if (user.includes('https://shrtco.de/')) {
+      if (linkValue.includes('https://shrtco.de/')) {
         alreadyShortened();
       } else {
-        fetchLink(user);
+        fetchLink(linkValue);
       }
     } else {
       inputRef.current.classList.add('red__border');
@@ -59,7 +59,7 @@ const ShorterLink = ({
             type="text"
             placeholder="Shorten a link here..."
             onChange={e => inputChanged(e.target)}
-            value={user}
+            value={linkValue}
             ref={inputRef}
           />
           <button>Shorten it!</button>
@@ -74,7 +74,7 @@ const ShorterLink = ({
 };
 const mapStateToProps = state => {
   return {
-    user: state.user,
+    linkValue: state.linkValue,
     loading: state.loading,
   };
 };

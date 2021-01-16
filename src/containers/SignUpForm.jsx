@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 //importing field
 import { Field } from 'redux-form';
+//improting connect
+import { connect } from 'react-redux';
+//importing actions
+import { createUser } from '../actions';
 //form component
 class SignUpForm extends Component {
   //rendered input component
-  renderSignUp = ({ type, placeholder, input, source }) => {
+  renderSignUp = ({ type, placeholder, input, source, meta }) => {
     return (
       <div className="input__container">
         <div className="input__container">
@@ -18,16 +22,25 @@ class SignUpForm extends Component {
             <img src={`./images/${source}`} alt="" />
           </div>
         </div>
+        {this.props.renderError(meta)}
       </div>
     );
   };
+
   //receiving submited values
   onFormSubmit = values => {
-    console.log(values);
+    this.props.createUser(values);
   };
   render() {
     return (
       <form onSubmit={this.props.onSubmit(this.onFormSubmit)}>
+        <Field
+          name="username"
+          component={this.renderSignUp}
+          placeholder="Username"
+          type="text"
+          source="icon-user.svg"
+        />
         <Field
           name="email"
           component={this.renderSignUp}
@@ -43,7 +56,7 @@ class SignUpForm extends Component {
           source="icon-password.svg"
         />
         <Field
-          name="password-confirmed"
+          name="passwordConfirmed"
           component={this.renderSignUp}
           placeholder="Confirm Password"
           type="password"
@@ -54,4 +67,9 @@ class SignUpForm extends Component {
     );
   }
 }
-export default SignUpForm;
+const mapStateToProps = state => {
+  return {
+    currentUser: state.currentUser,
+  };
+};
+export default connect(mapStateToProps, { createUser })(SignUpForm);

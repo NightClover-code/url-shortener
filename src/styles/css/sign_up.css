@@ -64,12 +64,6 @@
   }
 }
 
-@media screen and (max-width: 500px) {
-  .sign__up__page .wrapper .sign__up__card .sign__up__card__container {
-    min-height: 80vh;
-  }
-}
-
 .sign__up__page .wrapper .sign__up__card .sign__up__card__container .illustration {
   -ms-grid-column: 2;
       grid-column-start: 2;

@@ -39,7 +39,9 @@ const LoginForm = () => {
         type="password"
         source="icon-password.svg"
       />
-      <Link className="forgot__password">Forgot your password?</Link>
+      <Link className="forgot__password" to="">
+        Forgot your password?
+      </Link>
       <button className="login__button">LOGIN</button>
     </form>
   );
