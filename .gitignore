@@ -2,7 +2,7 @@
 # Avoid accidental Sketch file upload 
 ###############################################
 ## Please do not remove line 5 - thanks! 🙂 ##
-###############################################
+##############################################
 *.sketch
 
 # Avoid accidental XD or Figma upload if you convert the design file
