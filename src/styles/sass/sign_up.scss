@@ -81,7 +81,7 @@
           form {
             text-align: center;
             .input__container {
-              width: 90%;
+              min-width: 400px;
               margin: auto;
               @media screen and (max-width: 1100px) {
                 margin: auto;

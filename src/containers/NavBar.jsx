@@ -3,8 +3,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 //importing link from react-router
 import { Link } from 'react-router-dom';
+import { signUserOut } from '../actions';
 //nav bar component
-const NavBar = ({ isNavOpen, isSignedIn, username }) => {
+const NavBar = ({ isNavOpen, isSignedIn, username, signUserOut }) => {
   const renderLoggedInOrLoggedOut = () => {
     if (isSignedIn) {
       return `Logged in as ${username}`;
@@ -19,7 +20,7 @@ const NavBar = ({ isNavOpen, isSignedIn, username }) => {
   const renderSignInOrSignOut = () => {
     if (isSignedIn) {
       return (
-        <Link to="" className="sign__up__link">
+        <Link to="" className="sign__up__link" onClick={() => signUserOut()}>
           Sign Out
         </Link>
       );
@@ -60,4 +61,4 @@ const mapStateToProps = state => {
     username: state.currentUser.username,
   };
 };
-export default connect(mapStateToProps)(NavBar);
+export default connect(mapStateToProps, { signUserOut })(NavBar);

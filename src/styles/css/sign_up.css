@@ -145,7 +145,7 @@
 }
 
 .sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content form .input__container {
-  width: 90%;
+  min-width: 400px;
   margin: auto;
   position: relative;
 }

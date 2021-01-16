@@ -16,7 +16,6 @@ const SignUp = ({ handleSubmit }) => {
       return <div className="header">{error}</div>;
     }
   };
-
   return (
     <div className="sign__up__page">
       <div className="wrapper">
@@ -68,9 +67,4 @@ const formWrapper = reduxForm({
   form: 'signUpForm',
   validate,
 })(SignUp);
-const mapStateToProps = state => {
-  return {
-    currentUser: state.currentUser,
-  };
-};
-export default connect(mapStateToProps)(formWrapper);
+export default connect(null)(formWrapper);

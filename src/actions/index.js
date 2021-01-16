@@ -115,3 +115,26 @@ export const createUser = ({ password, email, username }) => async dispatch => {
     });
   }
 };
+export const signUserOut = () => async dispatch => {
+  try {
+    const response = await auth.signOut();
+    dispatch({
+      type: CREATE_USER,
+      payload: {
+        username: '',
+        email: '',
+        password: '',
+        userId: null,
+        isSignedIn: false,
+        error: '',
+      },
+    });
+  } catch (error) {
+    dispatch({
+      type: CREATE_USER,
+      payload: {
+        error: error.message,
+      },
+    });
+  }
+};
