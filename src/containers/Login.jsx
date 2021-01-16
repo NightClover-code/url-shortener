@@ -10,7 +10,13 @@ import { Link } from 'react-router-dom';
 //importing connect
 import { connect } from 'react-redux';
 //login component
-const Login = () => {
+const Login = ({ handleSubmit }) => {
+  //rendering errors
+  const renderError = ({ error, touched }) => {
+    if (touched && error) {
+      return <div className="header">{error}</div>;
+    }
+  };
   return (
     <div className="login__page">
       <div className="wrapper">
@@ -33,7 +39,7 @@ const Login = () => {
                 </div>
               </div>
               <p>or use your email account:</p>
-              <LoginForm />
+              <LoginForm onSubmit={handleSubmit} renderError={renderError} />
               <div className="not__a__member">
                 <p>Not a member?</p>
                 <Link to="/signup" className="sign__up__now">

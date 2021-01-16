@@ -7,8 +7,10 @@ import { signUserOut } from '../actions';
 //nav bar component
 const NavBar = ({ isNavOpen, isSignedIn, username, signUserOut }) => {
   const renderLoggedInOrLoggedOut = () => {
-    if (isSignedIn) {
+    if (isSignedIn && username) {
       return `Logged in as ${username}`;
+    } else if (isSignedIn && !username) {
+      return 'You are logged in';
     } else {
       return (
         <Link to="/login" className="login__link">

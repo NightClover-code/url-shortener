@@ -10,6 +10,7 @@ import {
   USER_ENTERS_URL,
   FETCH_LINKS,
   CREATE_USER,
+  SIGN_USER_IN,
 } from '../actions/types';
 //importing history
 import history from '../history';
@@ -132,6 +133,29 @@ export const signUserOut = () => async dispatch => {
   } catch (error) {
     dispatch({
       type: CREATE_USER,
+      payload: {
+        error: error.message,
+      },
+    });
+  }
+};
+export const signUserIn = ({ email, password }) => async dispatch => {
+  try {
+    const response = await auth.signInWithEmailAndPassword(email, password);
+    dispatch({
+      type: SIGN_USER_IN,
+      payload: {
+        email,
+        password,
+        userId: response.user.uid,
+        isSignedIn: true,
+        error: '',
+      },
+    });
+    history.push('/');
+  } catch (error) {
+    dispatch({
+      type: SIGN_USER_IN,
       payload: {
         error: error.message,
       },
