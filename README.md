@@ -1,4 +1,4 @@
-# Shortly URL shortening API Challenge
+# Shortly URL shortening API Project
 
 ![Design preview for the Shortly URL shortening API coding challenge](./public/design/desktop-preview.jpg)
 
