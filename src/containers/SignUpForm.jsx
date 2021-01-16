@@ -26,10 +26,15 @@ class SignUpForm extends Component {
       </div>
     );
   };
-
   //receiving submited values
   onFormSubmit = values => {
     this.props.createUser(values);
+  };
+  //special errors
+  specialErrors = () => {
+    if (this.props.currentUser.error !== '') {
+      return this.props.currentUser.error;
+    }
   };
   render() {
     return (
@@ -48,6 +53,7 @@ class SignUpForm extends Component {
           type="email"
           source="icon-email.svg"
         />
+        {this.specialErrors()}
         <Field
           name="password"
           component={this.renderSignUp}

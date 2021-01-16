@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 //importing styles
 import '../../src/styles/css/sign_up.css';
 import { reduxForm } from 'redux-form';
@@ -9,44 +9,38 @@ import SignUpForm from './SignUpForm';
 //importing connect
 import { connect } from 'react-redux';
 //login component
-class SignUp extends Component {
+const SignUp = ({ handleSubmit }) => {
   //rendering errors
-  renderError({ error, touched }) {
+  const renderError = ({ error, touched }) => {
     if (touched && error) {
       return <div className="header">{error}</div>;
     }
-  }
-  render() {
-    return (
-      <div className="sign__up__page">
-        <div className="wrapper">
-          <div className="sign__up__card">
-            <div className="sign__up__card__container">
-              <div className="illustration">
-                <img src="./images/signup.svg" alt="signup" />
-              </div>
-              <div className="text__content">
-                <h1>Create Account</h1>
-                <SignUpForm
-                  onSubmit={this.props.handleSubmit}
-                  renderError={this.renderError}
-                />
-                <div className="already__have__account">
-                  <p>Already have an account?</p>
-                  <Link to="/login" className="login__now">
-                    Login
-                  </Link>
-                </div>
+  };
+
+  return (
+    <div className="sign__up__page">
+      <div className="wrapper">
+        <div className="sign__up__card">
+          <div className="sign__up__card__container">
+            <div className="illustration">
+              <img src="./images/signup.svg" alt="signup" />
+            </div>
+            <div className="text__content">
+              <h1>Create Account</h1>
+              <SignUpForm onSubmit={handleSubmit} renderError={renderError} />
+              <div className="already__have__account">
+                <p>Already have an account?</p>
+                <Link to="/login" className="login__now">
+                  Login
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </div>
-    );
-  }
-}
-
-//checking if user entered email and password
+    </div>
+  );
+};
 const validate = ({ email, password, passwordConfirmed, username }) => {
   const errors = {};
   if (!email) {
@@ -69,9 +63,14 @@ const validate = ({ email, password, passwordConfirmed, username }) => {
   }
   return errors;
 };
+//checking if user entered email and password
 const formWrapper = reduxForm({
   form: 'signUpForm',
   validate,
 })(SignUp);
-
-export default connect(null)(formWrapper);
+const mapStateToProps = state => {
+  return {
+    currentUser: state.currentUser,
+  };
+};
+export default connect(mapStateToProps)(formWrapper);

@@ -11,6 +11,8 @@ import {
   FETCH_LINKS,
   CREATE_USER,
 } from '../actions/types';
+//importing history
+import history from '../history';
 //importing api call
 import shortenURL from '../API/shortenURL';
 //imoprting random id's to set as keys for list children
@@ -89,15 +91,27 @@ export const fetchLink = user => async dispatch => {
     dispatch(successfullyShortened());
   }
 };
-export const createUser = ({ password, email }) => async dispatch => {
-  const response = await auth.createUserWithEmailAndPassword(email, password);
-  dispatch({
-    type: CREATE_USER,
-    payload: {
-      email,
-      password,
-      userId: response.user.uid,
-      isSignedIn: true,
-    },
-  });
+export const createUser = ({ password, email, username }) => async dispatch => {
+  try {
+    const response = await auth.createUserWithEmailAndPassword(email, password);
+    dispatch({
+      type: CREATE_USER,
+      payload: {
+        username,
+        email,
+        password,
+        userId: response.user.uid,
+        isSignedIn: true,
+        error: '',
+      },
+    });
+    history.push('/');
+  } catch (error) {
+    dispatch({
+      type: CREATE_USER,
+      payload: {
+        error: error.message,
+      },
+    });
+  }
 };
