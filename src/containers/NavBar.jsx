@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 //importing link from react-router
 import { Link } from 'react-router-dom';
+//importing actions
 import { signUserOut } from '../actions';
 //nav bar component
 const NavBar = ({ isNavOpen, isSignedIn, username, signUserOut }) => {
