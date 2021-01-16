@@ -1,6 +1,8 @@
 import React from 'react';
 //importing components
 import NavBar from './NavBar';
+//improting link
+import { Link } from 'react-router-dom';
 //importing actions
 import { clickedOnMenu } from '../actions';
 //improting connect from react-redux
@@ -15,9 +17,9 @@ const Header = ({ clickedOnMenu }) => {
     <header>
       <div className="logo__container">
         <div className="logo">
-          <a href="index.html">
+          <Link to="/">
             <img src="./images/logo.svg" alt="logo" />
-          </a>
+          </Link>
         </div>
       </div>
       <div className="menu__container" onClick={onMenuClick}>

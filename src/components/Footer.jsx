@@ -1,14 +1,15 @@
 import React from 'react';
-
+//improting link
+import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer>
       <div className="footer__container">
         <div className="logo__container">
           <div className="logo">
-            <a href="index.html">
+            <Link to="/">
               <img src="./images/logo-footer.svg" alt="logo" />
-            </a>
+            </Link>
           </div>
         </div>
         <div className="footer__lists__container">
