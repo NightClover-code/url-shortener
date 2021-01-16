@@ -12,6 +12,7 @@ import {
   CREATE_USER,
   SIGN_USER_IN,
   SIGN_USER_OUT,
+  SAVING_USER_AFTER_REFRESH,
 } from '../actions/types';
 //importing history
 import history from '../history';
@@ -137,6 +138,7 @@ export const signUserOut = () => async dispatch => {
         error: '',
       },
     });
+    localStorage.setItem('user', JSON.stringify({}));
   } catch (error) {
     dispatch({
       type: SIGN_USER_OUT,
@@ -174,4 +176,10 @@ export const signUserIn = ({ email, password }) => async dispatch => {
       },
     });
   }
+};
+export const savingUser = userInfo => {
+  return {
+    type: SAVING_USER_AFTER_REFRESH,
+    payload: userInfo,
+  };
 };

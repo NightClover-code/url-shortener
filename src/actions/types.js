@@ -11,3 +11,4 @@ export const FETCH_LINKS = 'FETCH_LINKS';
 export const CREATE_USER = 'CREATE_USER';
 export const SIGN_USER_IN = 'SIGN_USER_IN';
 export const SIGN_USER_OUT = 'SIGN_USER_OUT';
+export const SAVING_USER_AFTER_REFRESH = 'SAVING_USER_AFTER_REFRESH';
