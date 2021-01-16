@@ -11,6 +11,7 @@ import {
   FETCH_LINKS,
   CREATE_USER,
   SIGN_USER_IN,
+  SIGN_USER_OUT,
 } from '../actions/types';
 //importing history
 import history from '../history';
@@ -106,6 +107,12 @@ export const createUser = ({ password, email, username }) => async dispatch => {
         error: '',
       },
     });
+    db.collection('users').doc(response.user.uid).set({
+      email,
+      password,
+      username,
+      userId: response.user.uid,
+    });
     history.push('/');
   } catch (error) {
     dispatch({
@@ -120,7 +127,7 @@ export const signUserOut = () => async dispatch => {
   try {
     const response = await auth.signOut();
     dispatch({
-      type: CREATE_USER,
+      type: SIGN_USER_OUT,
       payload: {
         username: '',
         email: '',
@@ -132,7 +139,7 @@ export const signUserOut = () => async dispatch => {
     });
   } catch (error) {
     dispatch({
-      type: CREATE_USER,
+      type: SIGN_USER_OUT,
       payload: {
         error: error.message,
       },
@@ -142,16 +149,22 @@ export const signUserOut = () => async dispatch => {
 export const signUserIn = ({ email, password }) => async dispatch => {
   try {
     const response = await auth.signInWithEmailAndPassword(email, password);
-    dispatch({
-      type: SIGN_USER_IN,
-      payload: {
-        email,
-        password,
-        userId: response.user.uid,
-        isSignedIn: true,
-        error: '',
-      },
-    });
+    db.collection('users')
+      .doc(response.user.uid)
+      .get()
+      .then(doc => {
+        dispatch({
+          type: SIGN_USER_IN,
+          payload: {
+            username: doc.data().username,
+            email,
+            password,
+            userId: response.user.uid,
+            isSignedIn: true,
+            error: '',
+          },
+        });
+      });
     history.push('/');
   } catch (error) {
     dispatch({

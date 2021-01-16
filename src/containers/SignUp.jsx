@@ -52,7 +52,7 @@ const validate = ({ email, password, passwordConfirmed, username }) => {
     errors.passwordConfirmed = "Passwords don't match. Please try again.";
   }
   if (password && password.length < 8) {
-    errors.password = 'Password length must be atleast 8 characters';
+    errors.password = 'Password length must be at least 8 characters';
   }
   if (password && password.length > 15) {
     errors.password = 'Password length must not exceed 15 characters';
