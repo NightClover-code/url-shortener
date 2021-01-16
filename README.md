@@ -15,6 +15,9 @@ Users should be able to:
 - Receive an error message when the `form` is submitted if:
   - The `input` field is empty
 - Receive custom messages based on the link they enter (unvalid link, already shortened etc...)
+- Create an account and sign up
+- Login with popular services (google, facebook...) or with their account
+- See the links they had shortened when they login
 
 ## Giving Feedback 
 
