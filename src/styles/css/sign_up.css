@@ -145,22 +145,14 @@
 }
 
 .sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content form .input__container {
-  min-width: 400px;
+  width: calc(250px + 10vw);
   margin: auto;
   position: relative;
 }
 
 @media screen and (max-width: 1100px) {
   .sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content form .input__container {
-    margin: auto;
     width: 90%;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .sign__up__page .wrapper .sign__up__card .sign__up__card__container .text__content form .input__container {
-    margin: auto;
-    width: 100%;
   }
 }
 
@@ -279,7 +271,6 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin: auto;
   }
 }
 /*# sourceMappingURL=sign_up.css.map */
