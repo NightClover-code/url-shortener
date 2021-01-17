@@ -142,15 +142,7 @@ export const signUserOut = () => async dispatch => {
     const response = await auth.signOut();
     dispatch({
       type: SIGN_USER_OUT,
-      payload: {
-        username: '',
-        email: '',
-        password: '',
-        userId: null,
-        isSignedIn: false,
-        error: '',
-        links: [],
-      },
+      payload: {},
     });
     //clear local storage when signing out
     localStorage.setItem('user', JSON.stringify({}));

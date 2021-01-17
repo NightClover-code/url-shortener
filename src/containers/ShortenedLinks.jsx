@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 //importing connect from react redux
 import { connect } from 'react-redux';
-import { db } from '../firebase';
 //shortenedLinks component
 const ShortenedLinks = ({ links, currentUser }) => {
   //copying to clipboard on button click
