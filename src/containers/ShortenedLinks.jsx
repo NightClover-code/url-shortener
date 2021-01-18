@@ -1,8 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 //importing connect from react redux
 import { connect } from 'react-redux';
 //shortenedLinks component
-const ShortenedLinks = ({ links, currentUser }) => {
+const ShortenedLinks = ({ links, saveLinksToCurrentUser }) => {
   //copying to clipboard on button click
   const onCopyHandler = (e, str) => {
     //changing background and telling the user they copied the link
@@ -17,13 +17,15 @@ const ShortenedLinks = ({ links, currentUser }) => {
     document.body.removeChild(el);
   };
   //returning links
-  const returnedLinks = links.map(({ originalLink, id, shortenedLink }) => {
+  const returnedLinks = links.map(link => {
     return (
-      <div className="shortened__link__container" key={id}>
-        <input className="original__link" value={originalLink} readOnly />
+      <div className="shortened__link__container" key={link.id}>
+        <input className="original__link" value={link.originalLink} readOnly />
         <div className="shortened__link__and__button">
-          <div className="shortened__link">{shortenedLink}</div>
-          <button onClick={e => onCopyHandler(e, shortenedLink)}>Copy</button>
+          <div className="shortened__link">{link.shortenedLink}</div>
+          <button onClick={e => onCopyHandler(e, link.shortenedLink)}>
+            Copy
+          </button>
         </div>
       </div>
     );

@@ -13,6 +13,7 @@ import {
   SIGN_USER_IN,
   SIGN_USER_OUT,
   SAVING_USER_AFTER_REFRESH,
+  SAVE_LINK_TO_CURRENT_USER,
 } from '../actions/types';
 //importing history
 import history from '../history';
@@ -74,10 +75,10 @@ export const alreadyShortened = () => {
     payload: 'Your link is already shortened 😉',
   };
 };
-export const fetchLink = user => async dispatch => {
+export const fetchLink = linkValue => async (dispatch, getState) => {
   //response from shortening link
   const response = await shortenURL('/shorten', {
-    params: { url: user },
+    params: { url: linkValue },
   }).catch(err => {
     if (err.response) {
       dispatch(invalidLink());
@@ -95,6 +96,8 @@ export const fetchLink = user => async dispatch => {
     });
     //set loading state to show success!
     dispatch(successfullyShortened());
+    //saving links to user's account
+    dispatch(saveLinksToCurrentUser());
   }
 };
 export const createUser = ({ password, email, username }) => async (
@@ -196,4 +199,15 @@ export const savingUser = userInfo => {
     type: SAVING_USER_AFTER_REFRESH,
     payload: userInfo,
   };
+};
+export const saveLinksToCurrentUser = () => (dispatch, getState) => {
+  let currentUser = getState().currentUser;
+  let links = getState().links;
+  dispatch({
+    type: SAVE_LINK_TO_CURRENT_USER,
+    payload: {
+      ...currentUser,
+      links,
+    },
+  });
 };

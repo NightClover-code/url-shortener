@@ -3,6 +3,7 @@ import {
   SAVING_USER_AFTER_REFRESH,
   SIGN_USER_IN,
   SIGN_USER_OUT,
+  SAVE_LINK_TO_CURRENT_USER,
 } from '../actions/types';
 
 const currentUserReducer = (state = {}, action) => {
@@ -14,6 +15,8 @@ const currentUserReducer = (state = {}, action) => {
     case SIGN_USER_OUT:
       return action.payload;
     case SAVING_USER_AFTER_REFRESH:
+      return action.payload;
+    case SAVE_LINK_TO_CURRENT_USER:
       return action.payload;
     default:
       return state;
