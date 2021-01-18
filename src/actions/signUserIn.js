@@ -9,24 +9,16 @@ const signUserIn = ({ email, password }) => async dispatch => {
   //loggin in the user
   try {
     const response = await auth.signInWithEmailAndPassword(email, password);
-    //getting user's info from firestore (username)
+    //getting user's info from firestore
     db.collection('users')
       .doc(response.user.uid)
       .get()
-      .then(doc => {
+      .then(doc =>
         dispatch({
           type: SIGN_USER_IN,
-          payload: {
-            username: doc.data().username,
-            email,
-            password,
-            userId: response.user.uid,
-            isSignedIn: true,
-            error: '',
-            links: doc.data().links,
-          },
-        });
-      });
+          payload: doc.data(),
+        })
+      );
     //redirecting the user
     history.push('/');
   } catch (error) {

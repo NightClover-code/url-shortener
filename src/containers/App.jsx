@@ -24,8 +24,8 @@ const App = ({ isNavOpen, clickedOutOfNav, currentUser, savingUser }) => {
       let userLocalInfo = JSON.parse(localStorage.getItem('user'));
       savingUser(userLocalInfo);
     }
-  }, [savingUser]);
-  //saving items to local storage based on todos change
+  }, []);
+  //saving user info to local storage based on whetere they're signed in or not
   useEffect(() => {
     if (currentUser.isSignedIn) {
       const saveToLocal = () => {

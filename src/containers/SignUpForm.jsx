@@ -5,6 +5,7 @@ import { Field } from 'redux-form';
 import { connect } from 'react-redux';
 //importing actions
 import createUser from '../actions/createUser';
+import { creatingAccount } from '../actions';
 //form component
 class SignUpForm extends Component {
   //rendered input component
@@ -29,6 +30,7 @@ class SignUpForm extends Component {
   //receiving submited values
   onFormSubmit = values => {
     this.props.createUser(values);
+    this.props.creatingAccount();
   };
   //special errors
   specialErrors = () => {
@@ -68,6 +70,7 @@ class SignUpForm extends Component {
           type="password"
           source="icon-password.svg"
         />
+        {this.props.loading}
         <button className="sign__up__button">SIGN UP</button>
       </form>
     );
@@ -76,6 +79,9 @@ class SignUpForm extends Component {
 const mapStateToProps = state => {
   return {
     currentUser: state.currentUser,
+    loading: state.loading,
   };
 };
-export default connect(mapStateToProps, { createUser })(SignUpForm);
+export default connect(mapStateToProps, { createUser, creatingAccount })(
+  SignUpForm
+);

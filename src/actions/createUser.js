@@ -1,39 +1,41 @@
 //importing types
 import { CREATE_USER } from '../actions/types';
+//importing actions
+import { resetLoading } from './index';
 //importing history
 import history from '../history';
 //importing firebase
 import { auth, db } from '../firebase';
-const createUser = ({ password, email, username }) => async (
-  dispatch,
-  getState
-) => {
+const createUser = ({ password, email, username }) => async dispatch => {
   try {
     //creating a user with firebase
     const response = await auth.createUserWithEmailAndPassword(email, password);
-    //saving user's info in a state
-    dispatch({
-      type: CREATE_USER,
-      payload: {
-        username,
-        email,
-        password,
-        userId: response.user.uid,
-        isSignedIn: true,
-        error: '',
-        links: [],
-      },
-    });
     //saving the user to firebase firestoree
     db.collection('users').doc(response.user.uid).set({
+      username,
       email,
       password,
-      username,
       userId: response.user.uid,
-      links: getState().links,
+      isSignedIn: true,
+      error: '',
+      links: [],
     });
-    //redirecting to homepage
-    history.push('/');
+    setTimeout(() => {
+      //getting user's info from firestore
+      db.collection('users')
+        .doc(response.user.uid)
+        .get()
+        .then(doc =>
+          dispatch({
+            type: CREATE_USER,
+            payload: doc.data(),
+          })
+        );
+      //resetting loading
+      dispatch(resetLoading());
+      //redirecting to homepage
+      history.push('/');
+    }, 500);
   } catch (error) {
     dispatch({
       type: CREATE_USER,

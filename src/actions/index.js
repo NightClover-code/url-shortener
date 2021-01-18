@@ -9,6 +9,8 @@ import {
   NO_URL_PROVIDED,
   SUCCESSFULLY_SHORTENED_URL,
   USER_ENTERS_URL,
+  RESET_LOADING,
+  CREATING_ACCOUNT,
 } from '../actions/types';
 //action creators
 export const clickedOnMenu = () => {
@@ -60,5 +62,17 @@ export const alreadyShortened = () => {
   return {
     type: ALREADY_SHORTENED_URL,
     payload: 'Your link is already shortened 😉',
+  };
+};
+export const creatingAccount = () => {
+  return {
+    type: CREATING_ACCOUNT,
+    payload: 'Creating your account...',
+  };
+};
+export const resetLoading = () => {
+  return {
+    type: RESET_LOADING,
+    payload: '',
   };
 };
