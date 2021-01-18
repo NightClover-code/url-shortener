@@ -5,7 +5,7 @@ import { Field } from 'redux-form';
 import { connect } from 'react-redux';
 //importing actions
 import createUser from '../actions/createUser';
-import { creatingAccount } from '../actions';
+import { creatingAccount, resetLoading } from '../actions';
 //form component
 class SignUpForm extends Component {
   //rendered input component
@@ -37,6 +37,7 @@ class SignUpForm extends Component {
     if (this.props.currentUser.error !== '') {
       return this.props.currentUser.error;
     } else {
+      this.props.resetLoading();
       this.props.creatingAccount();
     }
   };
@@ -86,5 +87,6 @@ const mapStateToProps = state => {
 };
 export default connect(mapStateToProps, {
   createUser,
+  resetLoading,
   creatingAccount,
 })(SignUpForm);

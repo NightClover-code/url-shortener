@@ -10,6 +10,7 @@ import {
   SUCCESSFULLY_SHORTENED_URL,
   USER_ENTERS_URL,
   CREATING_ACCOUNT,
+  RESET_LOADING,
 } from '../actions/types';
 //action creators
 export const clickedOnMenu = () => {
@@ -67,5 +68,11 @@ export const creatingAccount = () => {
   return {
     type: CREATING_ACCOUNT,
     payload: 'Creating your account...',
+  };
+};
+export const resetLoading = () => {
+  return {
+    type: RESET_LOADING,
+    payload: '',
   };
 };
