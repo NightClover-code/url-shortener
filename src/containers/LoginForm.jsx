@@ -5,7 +5,7 @@ import { Field } from 'redux-form';
 import { Link } from 'react-router-dom';
 //importing connect and actions
 import { connect } from 'react-redux';
-import { signUserIn } from '../actions';
+import signUserIn from '../actions/signUserIn';
 //login form component
 class LoginForm extends Component {
   //input component

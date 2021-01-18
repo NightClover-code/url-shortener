@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
+//importing actions
 import {
   alreadyShortened,
-  fetchLink,
   inputChanged,
   invalidLink,
   noLinkProvided,
@@ -9,16 +9,11 @@ import {
   successfullyShortened,
   userProvidedLink,
 } from '../actions';
-
-import ShortenedLinks from './ShortenedLinks';
-import { connect } from 'react-redux';
-
-//importing actions
-
+import fetchLink from '../actions/fetchLink';
 //importing components
-
+import ShortenedLinks from './ShortenedLinks';
 //importing connect from react redux
-
+import { connect } from 'react-redux';
 //shorter link component
 const ShorterLink = ({
   linkValue,

@@ -2,7 +2,7 @@ import React from 'react';
 //importing connect from react redux
 import { connect } from 'react-redux';
 //shortenedLinks component
-const ShortenedLinks = ({ link, currentUser }) => {
+const ShortenedLinks = ({ currentUser }) => {
   //copying to clipboard on button click
   const onCopyHandler = (e, str) => {
     //changing background and telling the user they copied the link

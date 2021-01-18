@@ -4,7 +4,7 @@ import { Field } from 'redux-form';
 //improting connect
 import { connect } from 'react-redux';
 //importing actions
-import { createUser } from '../actions';
+import createUser from '../actions/createUser';
 //form component
 class SignUpForm extends Component {
   //rendered input component

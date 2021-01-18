@@ -3,7 +3,8 @@ import React, { useEffect } from 'react';
 //importing styles
 import '../styles/css/app.css';
 //importing actions
-import { clickedOnMenu, clickedOutOfNav, savingUser } from '../actions';
+import { clickedOnMenu, clickedOutOfNav } from '../actions';
+import savingUser from '../actions/savingUser';
 //importing components
 import Boost from '../components/Boost';
 import Footer from '../components/Footer';

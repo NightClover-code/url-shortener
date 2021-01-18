@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 //importing link from react-router
 import { Link } from 'react-router-dom';
 //importing actions
-import { signUserOut } from '../actions';
+import signUserOut from '../actions/signUserOut';
 //nav bar component
 const NavBar = ({ isNavOpen, isSignedIn, username, signUserOut }) => {
   const renderLoggedInOrLoggedOut = () => {
