@@ -117,7 +117,7 @@ export const createUser = ({ password, email, username }) => async (
         userId: response.user.uid,
         isSignedIn: true,
         error: '',
-        links: getState().links,
+        links: [],
       },
     });
     //saving the user to firebase firestoree
@@ -179,7 +179,7 @@ export const signUserIn = ({ email, password }) => async (
             userId: response.user.uid,
             isSignedIn: true,
             error: '',
-            links: getState().links,
+            links: doc.data().links,
           },
         });
       });
@@ -210,4 +210,10 @@ export const saveLinksToCurrentUser = () => (dispatch, getState) => {
       links,
     },
   });
+  db.collection('users')
+    .doc(currentUser.userId)
+    .set({
+      ...currentUser,
+      links,
+    });
 };
