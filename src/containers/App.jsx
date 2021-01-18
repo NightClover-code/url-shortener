@@ -5,6 +5,8 @@ import '../styles/css/app.css';
 //importing actions
 import { clickedOnMenu, clickedOutOfNav } from '../actions';
 import savingUser from '../actions/savingUser';
+import showLinks from '../actions/showLinks';
+import showNormalLinks from '../actions/showNormalLinks';
 //importing components
 import Boost from '../components/Boost';
 import Footer from '../components/Footer';
@@ -15,7 +17,14 @@ import Statistics from '../components/Statistics';
 //importing connect from react redux
 import { connect } from 'react-redux';
 //app container
-const App = ({ isNavOpen, clickedOutOfNav, currentUser, savingUser }) => {
+const App = ({
+  isNavOpen,
+  clickedOutOfNav,
+  currentUser,
+  savingUser,
+  showNormalLinks,
+  showLinks,
+}) => {
   useEffect(() => {
     //saving user after refresh
     if (localStorage.getItem('user') === null) {
@@ -24,12 +33,21 @@ const App = ({ isNavOpen, clickedOutOfNav, currentUser, savingUser }) => {
       let userLocalInfo = JSON.parse(localStorage.getItem('user'));
       savingUser(userLocalInfo);
     }
-  }, []);
+  }, [savingUser, showLinks]);
+  useEffect(() => {
+    if (currentUser.isSignedIn) {
+      //showing links
+      showNormalLinks();
+    }
+  }, [currentUser, showNormalLinks]);
   //saving user info to local storage based on whetere they're signed in or not
   useEffect(() => {
     if (currentUser.isSignedIn) {
       const saveToLocal = () => {
-        localStorage.setItem('user', JSON.stringify(currentUser));
+        localStorage.setItem(
+          'user',
+          JSON.stringify({ ...currentUser, links: [] })
+        );
       };
       saveToLocal();
     }
@@ -68,4 +86,6 @@ export default connect(mapStateToProps, {
   clickedOnMenu,
   clickedOutOfNav,
   savingUser,
+  showLinks,
+  showNormalLinks,
 })(App);

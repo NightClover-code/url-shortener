@@ -34,7 +34,7 @@ const ShorterLink = ({
     if (linkValue !== '') {
       userProvidedLink();
       inputRef.current.classList.remove('red__border');
-      if (linkValue.includes('https://shrtco.de/')) {
+      if (linkValue.includes('shrtco.de/')) {
         alreadyShortened();
       } else {
         fetchLink(linkValue);
