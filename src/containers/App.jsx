@@ -5,8 +5,7 @@ import '../styles/css/app.css';
 //importing actions
 import { clickedOnMenu, clickedOutOfNav } from '../actions';
 import savingUser from '../actions/savingUser';
-import showLinks from '../actions/showLinks';
-import showNormalLinks from '../actions/showNormalLinks';
+import updateLinks from '../actions/updateLinks';
 //importing components
 import Boost from '../components/Boost';
 import Footer from '../components/Footer';
@@ -22,8 +21,7 @@ const App = ({
   clickedOutOfNav,
   currentUser,
   savingUser,
-  showNormalLinks,
-  showLinks,
+  updateLinks,
 }) => {
   useEffect(() => {
     //saving user after refresh
@@ -33,25 +31,18 @@ const App = ({
       let userLocalInfo = JSON.parse(localStorage.getItem('user'));
       savingUser(userLocalInfo);
     }
-  }, [savingUser, showLinks]);
-  useEffect(() => {
-    if (currentUser.isSignedIn) {
-      //showing links
-      showNormalLinks();
-    }
-  }, [currentUser, showNormalLinks]);
+  }, [savingUser]);
   //saving user info to local storage based on whetere they're signed in or not
   useEffect(() => {
     if (currentUser.isSignedIn) {
       const saveToLocal = () => {
-        localStorage.setItem(
-          'user',
-          JSON.stringify({ ...currentUser, links: [] })
-        );
+        localStorage.setItem('user', JSON.stringify({ ...currentUser }));
       };
       saveToLocal();
+      //updating links to show on screen
+      updateLinks();
     }
-  }, [currentUser]);
+  }, [currentUser, updateLinks]);
   //toggle isNavOpen
   const onAppClick = target => {
     if (
@@ -86,6 +77,5 @@ export default connect(mapStateToProps, {
   clickedOnMenu,
   clickedOutOfNav,
   savingUser,
-  showLinks,
-  showNormalLinks,
+  updateLinks,
 })(App);

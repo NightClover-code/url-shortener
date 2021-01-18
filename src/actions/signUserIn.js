@@ -10,8 +10,7 @@ const signUserIn = ({ email, password }) => async dispatch => {
   try {
     const response = await auth.signInWithEmailAndPassword(email, password);
     //getting user's info from firestore
-    await db
-      .collection('users')
+    db.collection('users')
       .doc(response.user.uid)
       .get()
       .then(doc =>

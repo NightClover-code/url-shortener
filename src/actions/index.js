@@ -9,9 +9,7 @@ import {
   NO_URL_PROVIDED,
   SUCCESSFULLY_SHORTENED_URL,
   USER_ENTERS_URL,
-  RESET_LOADING,
   CREATING_ACCOUNT,
-  SYNCHING_LINKS,
 } from '../actions/types';
 //action creators
 export const clickedOnMenu = () => {
@@ -69,17 +67,5 @@ export const creatingAccount = () => {
   return {
     type: CREATING_ACCOUNT,
     payload: 'Creating your account...',
-  };
-};
-export const resetLoading = () => {
-  return {
-    type: RESET_LOADING,
-    payload: '',
-  };
-};
-export const synchingLinks = () => {
-  return {
-    type: SYNCHING_LINKS,
-    payload: 'synching your links...',
   };
 };

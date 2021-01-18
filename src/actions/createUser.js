@@ -9,7 +9,7 @@ const createUser = ({ password, email, username }) => async dispatch => {
     //creating a user with firebase
     const response = await auth.createUserWithEmailAndPassword(email, password);
     //saving the user to firebase firestoree
-    await db.collection('users').doc(response.user.uid).set({
+    db.collection('users').doc(response.user.uid).set({
       username,
       email,
       password,
@@ -18,17 +18,20 @@ const createUser = ({ password, email, username }) => async dispatch => {
       error: '',
       links: [],
     });
-    //getting user's info from firestore
-    await db
-      .collection('users')
-      .doc(response.user.uid)
-      .get()
-      .then(doc =>
-        dispatch({
-          type: CREATE_USER,
-          payload: doc.data(),
-        })
-      );
+    setTimeout(() => {
+      //getting user's info from firestore
+      db.collection('users')
+        .doc(response.user.uid)
+        .get()
+        .then(doc =>
+          dispatch({
+            type: CREATE_USER,
+            payload: doc.data(),
+          })
+        );
+      //redirecting to homepage
+      history.push('/');
+    }, 500);
     //redirecting to homepage
     history.push('/');
   } catch (error) {

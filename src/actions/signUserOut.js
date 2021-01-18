@@ -2,6 +2,8 @@
 import { SIGN_USER_OUT } from '../actions/types';
 //importing firebase
 import { auth } from '../firebase';
+//importing actions
+import clearLinks from '../actions/clearLinks';
 //action creators
 const signUserOut = () => async dispatch => {
   //signing out the user
@@ -13,6 +15,8 @@ const signUserOut = () => async dispatch => {
     });
     //clear local storage when signing out
     localStorage.setItem('user', JSON.stringify({}));
+    //clearing links
+    dispatch(clearLinks());
   } catch (error) {
     dispatch({
       type: SIGN_USER_OUT,
