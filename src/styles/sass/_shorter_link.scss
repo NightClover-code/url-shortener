@@ -65,6 +65,7 @@
   width: 100%;
   height: auto;
   .shortened__link__container {
+    position: relative;
     margin: 20px auto;
     width: 100%;
     background-color: #fff;
@@ -73,6 +74,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    &:hover {
+      .shortened__link__and__button .close__icon {
+        visibility: visible;
+      }
+    }
     @media screen and (max-width: 700px) {
       flex-flow: column nowrap;
       text-align: center;
@@ -126,6 +132,19 @@
         @media screen and (max-width: 700px) {
           width: 100%;
           margin: 0;
+        }
+      }
+      .close__icon {
+        visibility: hidden;
+        transform: scale(1.5);
+
+        padding: 5px 5px 0 10px;
+        cursor: pointer;
+        @media screen and (max-width: 700px) {
+          position: absolute;
+          right: 0;
+          top: 0;
+          transform: scale(1.1);
         }
       }
     }

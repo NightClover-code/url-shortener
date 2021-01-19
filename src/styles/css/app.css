@@ -221,6 +221,7 @@ header .menu__container .menu__icon i {
 }
 
 .shortened__links .shortened__link__container {
+  position: relative;
   margin: 20px auto;
   width: 100%;
   background-color: #fff;
@@ -235,6 +236,10 @@ header .menu__container .menu__icon i {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.shortened__links .shortened__link__container:hover .shortened__link__and__button .close__icon {
+  visibility: visible;
 }
 
 @media screen and (max-width: 700px) {
@@ -325,6 +330,24 @@ header .menu__container .menu__icon i {
   .shortened__links .shortened__link__container .shortened__link__and__button button {
     width: 100%;
     margin: 0;
+  }
+}
+
+.shortened__links .shortened__link__container .shortened__link__and__button .close__icon {
+  visibility: hidden;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  padding: 5px 5px 0 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  .shortened__links .shortened__link__container .shortened__link__and__button .close__icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
 }
 

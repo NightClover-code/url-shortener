@@ -7,6 +7,7 @@ import {
   LOGIN_WITH_GOOGLE,
   LOGIN_WITH_GITHUB,
   LOGIN_WITH_FACEBOOK,
+  DELETE_LINK,
 } from '../actions/types';
 
 const currentUserReducer = (state = {}, action) => {
@@ -26,6 +27,8 @@ const currentUserReducer = (state = {}, action) => {
     case LOGIN_WITH_GITHUB:
       return action.payload;
     case LOGIN_WITH_FACEBOOK:
+      return action.payload;
+    case DELETE_LINK:
       return action.payload;
     default:
       return state;
