@@ -31,7 +31,7 @@ const createUser = ({ password, email, username }) => async dispatch => {
         );
       //redirecting to homepage
       history.push('/');
-    }, 500);
+    }, 100);
     //redirecting to homepage
     history.push('/');
   } catch (error) {

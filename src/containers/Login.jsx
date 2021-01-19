@@ -9,8 +9,19 @@ import { reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
 //importing connect
 import { connect } from 'react-redux';
+//importing actions
+import {
+  loginWithGoogle,
+  loginWithFacebook,
+  loginWithGithub,
+} from '../actions/loginWithProvider';
 //login component
-const Login = ({ handleSubmit }) => {
+const Login = ({
+  handleSubmit,
+  loginWithGoogle,
+  loginWithFacebook,
+  loginWithGithub,
+}) => {
   //rendering errors
   const renderError = ({ error, touched }) => {
     if (touched && error) {
@@ -28,14 +39,23 @@ const Login = ({ handleSubmit }) => {
             <div className="text__content">
               <h1>Log In to Shortify</h1>
               <div className="social__media">
-                <div className="facebook__icon icon">
+                <div
+                  className="facebook__icon icon"
+                  onClick={() => loginWithFacebook()}
+                >
                   <i className="fab fa-facebook-f"></i>
                 </div>
-                <div className="google__icon icon">
+                <div
+                  className="google__icon icon"
+                  onClick={() => loginWithGoogle()}
+                >
                   <i className="fab fa-google"></i>
                 </div>
-                <div className="twitter__icon icon">
-                  <i className="fab fa-twitter"></i>
+                <div
+                  className="github__icon icon"
+                  onClick={() => loginWithGithub()}
+                >
+                  <i class="fab fa-github"></i>
                 </div>
               </div>
               <p>or use your email account:</p>
@@ -68,5 +88,13 @@ const formWrapper = reduxForm({
   form: 'loginForm',
   validate,
 })(Login);
-
-export default connect(null)(formWrapper);
+const mapStateToProps = state => {
+  return {
+    currentUser: state.currentUser,
+  };
+};
+export default connect(mapStateToProps, {
+  loginWithGoogle,
+  loginWithFacebook,
+  loginWithGithub,
+})(formWrapper);

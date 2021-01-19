@@ -4,10 +4,17 @@ import { UPDATE_LINKS } from '../actions/types';
 const updateLinks = () => (dispatch, getState) => {
   dispatch(synchingLinks());
   let currentUser = getState().currentUser;
-  dispatch({
-    type: UPDATE_LINKS,
-    payload: currentUser.links,
-  });
+  if (currentUser.links) {
+    dispatch({
+      type: UPDATE_LINKS,
+      payload: currentUser.links,
+    });
+  } else {
+    dispatch({
+      type: UPDATE_LINKS,
+      payload: [],
+    });
+  }
   dispatch(resetLoading());
 };
 export default updateLinks;
