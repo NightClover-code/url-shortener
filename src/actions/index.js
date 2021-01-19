@@ -9,6 +9,7 @@ import {
   NO_URL_PROVIDED,
   SUCCESSFULLY_SHORTENED_URL,
   USER_ENTERS_URL,
+  SYNCHING_LINKS,
   CREATING_ACCOUNT,
   RESET_LOADING,
 } from '../actions/types';
@@ -74,5 +75,11 @@ export const resetLoading = () => {
   return {
     type: RESET_LOADING,
     payload: '',
+  };
+};
+export const synchingLinks = () => {
+  return {
+    type: SYNCHING_LINKS,
+    payload: 'synching your links...',
   };
 };
