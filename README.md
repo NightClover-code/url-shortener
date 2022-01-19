@@ -21,4 +21,4 @@ Users should be able to:
 
 ## Giving Feedback 
 
-Any feedback on the code is welcome, thanks for sharing ! 🙏
+Any feedback on the code is welcome, thanks for sharing! 🙏
